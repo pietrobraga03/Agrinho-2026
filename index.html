@@ -20,8 +20,7 @@
 		font-style: normal;
 		font-display: swap;
 	}
-
-	#lovable-badge {
+	#badge {
 		--badge-bg: #1b1b1b;
 		--badge-text: #c5c1b9;
 		--badge-text-hover: #dcdad5;
@@ -60,8 +59,7 @@
 		transform: translateZ(0);
 		will-change: transform, opacity;
 	}
-
-	#lovable-badge-cta {
+	#badge-cta {
 		display: flex;
 		align-items: center;
 		gap: var(--badge-gap);
@@ -76,38 +74,31 @@
 			color var(--badge-transition-duration) ease,
 			transform 0.1s ease;
 	}
-
-	#lovable-badge-cta:hover {
+	#badge-cta:hover {
 		background: rgba(255, 255, 255, 0.04);
 		color: var(--badge-text-hover);
 	}
-
-	#lovable-badge-cta:active {
+	#badge-cta:active {
 		transform: scale(0.98);
 	}
-
-	#lovable-badge-cta:focus {
+	#badge-cta:focus {
 		outline: none;
 	}
-
-	#lovable-badge-cta:focus-visible {
+	#badge-cta:focus-visible {
 		outline: var(--focus-width) solid var(--focus-color);
 		outline-offset: var(--focus-offset);
 		z-index: 1;
 	}
-
-	#lovable-badge-text {
+	#badge-text {
 		line-height: 1;
 	}
-
-	#lovable-badge-divider {
+	#badge-divider {
 		width: 1px;
 		height: 24px;
 		background-color: rgba(255, 255, 255, 0.04);
 		flex-shrink: 0;
 	}
-
-	#lovable-badge-close {
+	#badge-close {
 		width: 24px;
 		height: 24px;
 		min-width: 24px;
@@ -125,55 +116,45 @@
 			background-color var(--badge-transition-duration) ease,
 			transform 0.1s ease;
 	}
-
-	#lovable-badge-close:hover {
+	#badge-close:hover {
 		background: rgba(255, 255, 255, 0.04);
 	}
-
-	#lovable-badge-close:active {
+	#badge-close:active {
 		transform: scale(0.92);
 	}
-
-	#lovable-badge-close:focus {
+	#badge-close:focus {
 		outline: none;
 	}
-
-	#lovable-badge-close:focus-visible {
+	#badge-close:focus-visible {
 		outline: var(--focus-width) solid var(--focus-color);
 		outline-offset: calc(var(--focus-offset) * -1);
 		z-index: 1;
 	}
-
-	#lovable-badge-close svg path {
+	#badge-close svg path {
 		fill: var(--badge-text);
 		transition: fill var(--badge-transition-duration) ease;
 	}
-
-	#lovable-badge-close:hover svg path {
+	#badge-close:hover svg path {
 		fill: var(--badge-text-hover);
 	}
-
 	@media (prefers-reduced-motion: reduce) {
-		#lovable-badge-cta,
-		#lovable-badge-close,
-		#lovable-badge-close svg path {
+		#badge-cta,
+		#badge-close,
+		#badge-close svg path {
 			transition: none;
 		}
-		
-		#lovable-badge-cta:active,
-		#lovable-badge-close:active {
+		#badge-cta:active,
+		#badge-close:active {
 			transform: none;
 		}
 	}
-
 	@media (prefers-contrast: high) {
-		#lovable-badge {
+		#badge {
 			--badge-bg: #000;
 			--badge-text: #fff;
 			--badge-text-hover: #fff;
 			border: 2px solid currentColor;
 		}
-		
 		#lovable-badge-cta:focus-visible,
 		#lovable-badge-close:focus-visible {
 			outline-width: 3px;
