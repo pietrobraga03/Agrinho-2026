@@ -1,234 +1,454 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="preload" as="image" href="/assets/hero-agro-Afn-9Dwn.jpg"/>
-        <link rel="stylesheet" href="/assets/styles-ClJBdZ82.css" data-precedence="default"/>
-        <title>AgroTech Store — Tecnologia que cultiva resultados</title><meta name="author" content="Lovable"/>
-        <meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/>
-        <meta name="twitter:site" content="@Lovable"/><meta name="description" content="Lojinha de produtos tecnológicos para o agro: drones, sensores, irrigação inteligente, GPS, estações meteorológicas e robôs autônomos."/>
-        <meta property="og:title" content="AgroTech Store — Tecnologia que cultiva resultados"/>
-        <meta property="og:description" content="Drones, sensores e robôs para uma agricultura mais inteligente."/>
-        <link rel="modulepreload" href="/assets/index-BQyOaKUL.js"/><link rel="modulepreload" href="/assets/routes-DWbxMdRq.js"/>
-
-<style>  
-	@font-face {
-		font-family: 'CameraPlainVariable';
-		src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
-		font-weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
-	#badge {
-		--badge-bg: #1b1b1b;
-		--badge-text: #c5c1b9;
-		--badge-text-hover: #dcdad5;
-		--badge-radius: 6px;
-		--badge-padding: 8px;
-		--badge-gap: 6px;
-		--badge-shadow: 
-			0 0 0 1px rgba(0, 0, 0, 0.88),
-			0 1px 0 0 rgba(0, 0, 0, 0.04),
-			0 2px 2px -1px rgba(0, 0, 0, 0.08),
-			0 4px 4px -2px rgba(0, 0, 0, 0.08),
-			0 8px 8px -4px rgba(0, 0, 0, 0.08),
-			0 16px 16px -8px rgba(0, 0, 0, 0.08);
-		--badge-transition-duration: 0.2s;
-		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
-		--focus-color: #575ECF;
-		--focus-offset: 2px;
-		--focus-width: 2px;
-		
-		position: fixed;
-		bottom: 12px;
-		right: 12px;
-		height: 24px;
-		display: flex;
-		align-items: center;
-		z-index: 1000000;
-		background-color: var(--badge-bg) !important;
-		color: var(--badge-text) !important;
-		border-radius: var(--badge-radius);
-		box-shadow: var(--badge-shadow) !important;
-		font-size: 12px;
-		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		font-weight: 400 !important;
-		text-transform: none !important;
-		font-feature-settings: normal !important;
-		transform: translateZ(0);
-		will-change: transform, opacity;
-	}
-	#badge-cta {
-		display: flex;
-		align-items: center;
-		gap: var(--badge-gap);
-		padding: 0 var(--badge-padding);
-		height: 100%;
-		color: inherit;
-		text-decoration: none;
-		white-space: nowrap;
-		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
-	#badge-cta:hover {
-		background: rgba(255, 255, 255, 0.04);
-		color: var(--badge-text-hover);
-	}
-	#badge-cta:active {
-		transform: scale(0.98);
-	}
-	#badge-cta:focus {
-		outline: none;
-	}
-	#badge-cta:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: var(--focus-offset);
-		z-index: 1;
-	}
-	#badge-text {
-		line-height: 1;
-	}
-	#badge-divider {
-		width: 1px;
-		height: 24px;
-		background-color: rgba(255, 255, 255, 0.04);
-		flex-shrink: 0;
-	}
-	#badge-close {
-		width: 24px;
-		height: 24px;
-		min-width: 24px;
-		min-height: 24px;
-		cursor: pointer;
-		background: none;
-		border: none;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
-		flex-shrink: 0;
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
-	#badge-close:hover {
-		background: rgba(255, 255, 255, 0.04);
-	}
-	#badge-close:active {
-		transform: scale(0.92);
-	}
-	#badge-close:focus {
-		outline: none;
-	}
-	#badge-close:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: calc(var(--focus-offset) * -1);
-		z-index: 1;
-	}
-	#badge-close svg path {
-		fill: var(--badge-text);
-		transition: fill var(--badge-transition-duration) ease;
-	}
-	#badge-close:hover svg path {
-		fill: var(--badge-text-hover);
-	}
-	@media (prefers-reduced-motion: reduce) {
-		#badge-cta,
-		#badge-close,
-		#badge-close svg path {
-			transition: none;
-		}
-		#badge-cta:active,
-		#badge-close:active {
-			transform: none;
-		}
-	}
-	@media (prefers-contrast: high) {
-		#badge {
-			--badge-bg: #000;
-			--badge-text: #fff;
-			--badge-text-hover: #fff;
-			border: 2px solid currentColor;
-		}
-		#lovable-badge-cta:focus-visible,
-		#lovable-badge-close:focus-visible {
-			outline-width: 3px;
-		}
-	}
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AgroTech Store — Tecnologia que cultiva resultados</title>
+<meta name="description" content="Lojinha de produtos tecnológicos para o agro: drones, sensores, irrigação inteligente, GPS e robôs autônomos." />
+<style>
+  :root{
+    --bg:#f6f8f1; --fg:#1c2a1f; --muted:#5d6b5f; --card:#ffffff;
+    --border:#dfe6d6; --primary:#2f7a3e; --primary-2:#5cc26b; --accent:#e2a64b;
+    --soil:#6b4a2b; --leaf:#3aa055;
+    --grad:linear-gradient(135deg,#1f5a2a 0%,#2f7a3e 50%,#5cc26b 100%);
+    --shadow:0 12px 30px -12px rgba(47,122,62,.35);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--fg);line-height:1.5;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(58,160,85,.06) 0 1px, transparent 1px 56px),
+      repeating-linear-gradient(0deg, rgba(107,74,43,.05) 0 1px, transparent 1px 56px);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(246,248,241,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .logo-mark{
+    width:36px;height:36px;border-radius:10px;background:var(--grad);
+    display:grid;place-items:center;color:#fff;box-shadow:var(--shadow);
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  .logo:hover .logo-mark{transform:rotate(-8deg) scale(1.05)}
+  .logo span b{color:var(--leaf)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul a{color:var(--muted);font-size:14px;transition:color .2s}
+  nav ul a:hover{color:var(--fg)}
+  .cart-btn{
+    display:flex;align-items:center;gap:8px;padding:8px 16px;
+    background:var(--card);border:1px solid var(--border);border-radius:999px;
+    cursor:pointer;font-weight:600;font-size:14px;color:var(--fg);
+    transition:all .25s;
+  }
+  .cart-btn:hover{border-color:var(--primary);box-shadow:var(--shadow);transform:translateY(-1px)}
+  .cart-count{
+    background:var(--primary);color:#fff;border-radius:999px;
+    min-width:22px;padding:2px 6px;font-size:12px;text-align:center;
+  }
+  @media(max-width:720px){ nav ul{display:none} }
+  /* HERO */
+  .hero{position:relative;padding:80px 0 60px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr} }
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--border);background:var(--card);
+    padding:6px 14px;border-radius:999px;font-size:12px;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+  }
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf);animation:pulse 1.8s infinite}
+  @keyframes pulse{50%{opacity:.3;transform:scale(.7)}}
+  h1{font-size:clamp(34px,5vw,60px);line-height:1.05;margin-top:20px;letter-spacing:-.02em;font-weight:800}
+  h1 .grad{
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lead{color:var(--muted);font-size:18px;margin-top:20px;max-width:540px}
+  .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    position:relative;overflow:hidden;cursor:pointer;border:none;
+    padding:14px 24px;border-radius:999px;font-weight:600;font-size:14px;
+    transition:transform .25s, box-shadow .25s;font-family:inherit;
+  }
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:var(--shadow)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:var(--card);border:1px solid var(--border);color:var(--fg)}
+  .btn-ghost:hover{border-color:var(--primary)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:420px;margin-top:48px}
+  .stat-k{font-size:26px;font-weight:800;color:var(--leaf)}
+  .stat-v{font-size:13px;color:var(--muted)}
+  .hero-art{position:relative}
+  .hero-art::before{
+    content:"";position:absolute;inset:-30px;border-radius:30px;
+    background:var(--grad);filter:blur(60px);opacity:.35;
+  }
+  .hero-card{
+    position:relative;border-radius:24px;overflow:hidden;
+    border:1px solid var(--border);box-shadow:var(--shadow);
+    aspect-ratio:16/11;
+    background:linear-gradient(135deg,#1f5a2a,#5cc26b);
+  }
+  .hero-card svg{position:absolute;inset:0;width:100%;height:100%}
+  .hero-tag{
+    position:absolute;left:16px;right:16px;bottom:16px;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 16px;border-radius:16px;
+    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
+    color:#fff;font-size:12px;border:1px solid rgba(255,255,255,.15);
+  }
+  .hero-tag .live{display:flex;align-items:center;gap:8px}
+  .hero-tag .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#5cc26b;animation:pulse 1.5s infinite}
+  /* PRODUCTS */
+  section.products{padding:80px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:40px}
+  .sec-head .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .sec-head h2{font-size:36px;letter-spacing:-.02em;margin-top:8px;font-weight:800}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:linear-gradient(160deg,#fff 0%,#eef5e6 100%);
+    border:1px solid var(--border);border-radius:20px;overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .5s, box-shadow .5s, border-color .5s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(47,122,62,.4)}
+  .thumb{position:relative;aspect-ratio:1;overflow:hidden;background:#eef0e8}
+  .thumb svg{width:100%;height:100%;transition:transform .7s}
+  .card:hover .thumb svg{transform:scale(1.06)}
+  .badge{
+    position:absolute;top:12px;left:12px;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+    padding:4px 10px;border-radius:999px;font-size:12px;font-weight:500;
+  }
+  .card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card-body h3{font-size:17px;font-weight:700}
+  .card-body p{font-size:14px;color:var(--muted)}
+  .card-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px}
+  .price{font-size:20px;font-weight:800}
+  .btn-sm{padding:9px 16px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+  .btn-sm:active{transform:scale(.95)}
+  /* WHY */
+  .why{background:#eaf1de;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 0}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px}
+  .why-ico{width:48px;height:48px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff}
+  .why-card h3{margin-top:16px;font-size:17px;font-weight:700}
+  .why-card p{margin-top:8px;font-size:14px;color:var(--muted)}
+  /* FOOTER */
+  footer{padding:48px 0;color:var(--muted);font-size:14px}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer .copy{margin-top:24px;border-top:1px solid var(--border);padding-top:24px;font-size:12px}
+  /* CART DRAWER */
+  .overlay{
+    position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);
+    opacity:0;pointer-events:none;transition:opacity .4s;
+  }
+  .overlay.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:100%;max-width:420px;z-index:55;
+    background:var(--card);border-left:1px solid var(--border);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform .5s cubic-bezier(.4,.0,.2,1);
+    box-shadow:-20px 0 60px -20px rgba(0,0,0,.3);
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border)}
+  .drawer-head .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .drawer-head h3{font-size:18px;font-weight:700;margin-top:4px}
+  .close-btn{background:none;border:none;cursor:pointer;font-size:18px;padding:8px;border-radius:50%}
+  .close-btn:hover{background:#eaf1de}
+  .drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
+  .empty{display:grid;place-items:center;height:100%;text-align:center;color:var(--muted)}
+  .empty-ico{width:64px;height:64px;border-radius:50%;background:#eaf1de;display:grid;place-items:center;margin:0 auto 12px}
+  .item{display:flex;gap:12px;border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:12px}
+  .item img,.item .mini{width:64px;height:64px;border-radius:10px;object-fit:cover;flex-shrink:0;background:#eef0e8}
+  .item-info{flex:1;min-width:0}
+  .item-top{display:flex;justify-content:space-between;gap:8px}
+  .item-name{font-size:14px;font-weight:600}
+  .item-total{font-size:14px;font-weight:700}
+  .qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+  .qty button{
+    width:28px;height:28px;border-radius:50%;border:1px solid var(--border);
+    background:#fff;cursor:pointer;font-size:14px;
+  }
+  .qty button:hover{border-color:var(--primary)}
+  .drawer-foot{padding:20px 24px;border-top:1px solid var(--border)}
+  .total-row{display:flex;justify-content:space-between;margin-bottom:14px;font-size:14px;color:var(--muted)}
+  .total-row span:last-child{font-size:22px;font-weight:800;color:var(--fg)}
+  .btn-block{width:100%}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  /* Ripple water-drop */
+  .ripple{
+    position:fixed;width:14px;height:14px;border-radius:50%;
+    pointer-events:none;transform:translate(-50%,-50%);z-index:90;
+    background:var(--leaf);opacity:.7;
+    animation:rip .9s ease-out forwards;
+  }
+  @keyframes rip{
+    0%{transform:translate(-50%,-50%) scale(.4);opacity:.7}
+    100%{transform:translate(-50%,-50%) scale(8);opacity:0}
+  }
 </style>
-<script defer src="/__l5e/events.js" data-artifact-kind="static_preview" data-artifact-id="f024280fcd4b5d59195057b5944bd584f4266d96" data-commit-sha="f024280fcd4b5d59195057b5944bd584f4266d96" data-context-token="v1.eyJwcm9qZWN0X2lkIjoiMjgwMTlkOWItMGNiMi00MDJjLTk2Y2MtNmY4Yzk0Y2I3NmY3IiwiYXJ0aWZhY3Rfa2luZCI6InN0YXRpY19wcmV2aWV3IiwiYXJ0aWZhY3RfaWQiOiJmMDI0MjgwZmNkNGI1ZDU5MTk1MDU3YjU5NDRiZDU4NGY0MjY2ZDk2IiwiY29tbWl0X3NoYSI6ImYwMjQyODBmY2Q0YjVkNTkxOTUwNTdiNTk0NGJkNTg0ZjQyNjZkOTYiLCJleHAiOjE3ODI3ODQ5NzV9.T_v4r5Wk0JefTtcyBMEXdSsnMK9QDuWDEXjfQIQYE8w" data-track-url="/__l5e/trackevents?__lovable_sha=f024280fcd4b5d59195057b5944bd584f4266d96"></script><meta name="twitter:title" content="AgroTech Store — Tecnologia que cultiva resultados"><meta name="twitter:description" content="Drones, sensores e robôs para uma agricultura mais inteligente."></head><body><!--$--><div class="min-h-screen bg-background text-foreground font-sans"><div aria-hidden="true" class="pointer-events-none fixed inset-0 opacity-[0.06]" style="background-image:repeating-linear-gradient(90deg, var(--leaf) 0 1px, transparent 1px 56px), repeating-linear-gradient(0deg, var(--soil) 0 1px, transparent 1px 56px)"></div><header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md"><div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"><a href="#top" class="group flex items-center gap-2"><span class="grid h-9 w-9 place-items-center rounded-md text-primary-foreground shadow-[var(--shadow-leaf)] transition-transform group-hover:rotate-[-8deg]" style="background:var(--gradient-hero)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"></path><path d="M4 20c4-4 8-6 13-7"></path></svg></span><span class="text-lg font-semibold tracking-tight">Agro<span style="color:var(--leaf)">Tech</span>.Store</span></a><nav class="hidden gap-8 text-sm text-muted-foreground md:flex"><a href="#produtos" class="transition-colors hover:text-foreground">Catálogo</a><a href="#porque" class="transition-colors hover:text-foreground">Por que AgroTech</a><a href="#contato" class="transition-colors hover:text-foreground">Contato</a></nav><button class="relative flex items-center gap-2 overflow-hidden rounded-full border border-border bg-card px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:shadow-[var(--shadow-leaf)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 13H5L3 7z"></path><path d="M8 7l4-5 4 5"></path></svg><span>Colheita</span><span class="grid min-w-6 place-items-center rounded-full bg-primary px-1.5 text-xs text-primary-foreground">0</span></button></div></header><section id="top" class="relative overflow-hidden"><div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-28"><div class="relative z-10"><span class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground"><span class="h-1.5 w-1.5 animate-pulse rounded-full" style="background:var(--leaf)"></span>Safra 2026 · Tecnologia conectada ao campo</span><h1 class="mt-6 text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">A tecnologia que faz seu campo<!-- --> <span style="background:var(--gradient-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent">germinar dados</span>.</h1><p class="mt-6 max-w-xl text-lg text-muted-foreground">Drones, sensores, robôs e estações meteorológicas escolhidos para produtores que querem decidir com precisão e colher mais com menos.</p><div class="mt-8 flex flex-wrap gap-3"><button class="relative overflow-hidden rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-leaf)] transition-transform hover:-translate-y-0.5" style="background:var(--gradient-hero)"><span class="relative z-10">Plantar no carrinho 🌱</span></button><a href="#porque" class="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:border-primary">Como funciona</a></div><div class="mt-12 grid max-w-md grid-cols-3 gap-6 text-sm"><div><div class="text-2xl font-bold" style="color:var(--leaf)">+38%</div><div class="text-muted-foreground">produtividade</div></div><div><div class="text-2xl font-bold" style="color:var(--leaf)">-42%</div><div class="text-muted-foreground">uso de água</div></div><div><div class="text-2xl font-bold" style="color:var(--leaf)">24/7</div><div class="text-muted-foreground">monitoramento</div></div></div></div><div class="relative"><div class="absolute -inset-6 rounded-3xl blur-3xl opacity-40" style="background:var(--gradient-hero)"></div><div class="relative overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-leaf)]"><img src="/assets/hero-agro-Afn-9Dwn.jpg" alt="Drone agrícola sobrevoando plantação ao amanhecer" width="1600" height="900" class="h-full w-full object-cover"/><div class="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-xs text-white backdrop-blur-md"><div class="flex items-center gap-2"><span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span><span>Talhão 04 · NDVI 0.82</span></div><span>Atualizado agora</span></div></div></div></div></section><section id="produtos" class="relative mx-auto max-w-7xl px-6 py-20"><div class="mb-12 flex items-end justify-between gap-4"><div><p class="text-xs uppercase tracking-widest text-muted-foreground">Catálogo</p><h2 class="mt-2 text-4xl font-bold tracking-tight">Equipamentos prontos para a próxima safra</h2></div><span class="hidden text-sm text-muted-foreground md:block">6<!-- --> itens disponíveis</span></div><div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-drone-BBQ-bvNn.jpg" alt="Drone AgroScan X1" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">🛰️<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">Drone AgroScan X1</h3><p class="text-sm text-muted-foreground">Mapeamento aéreo e NDVI em tempo real.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 12.990,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-sensor-C3Tz4W5k.jpg" alt="Sensor de Solo SoilPulse" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">🌱<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">Sensor de Solo SoilPulse</h3><p class="text-sm text-muted-foreground">Umidade, pH e temperatura via LoRa.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 489,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-irrigation-h-REdwUt.jpg" alt="Controlador IrrigaSmart" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">💧<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">Controlador IrrigaSmart</h3><p class="text-sm text-muted-foreground">Irrigação automatizada por zonas.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 1.790,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-gps-BxOWo2y1.jpg" alt="GPS Rural TrailMap" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">📡<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">GPS Rural TrailMap</h3><p class="text-sm text-muted-foreground">Demarcação de talhões e rotas.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 2.350,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-weather-tLhAo4KP.jpg" alt="Estação ClimaCampo" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">☀️<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">Estação ClimaCampo</h3><p class="text-sm text-muted-foreground">Previsão hiperlocal com painel solar.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 3.290,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article><article class="group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-leaf)]" style="background:var(--gradient-card)"><div class="relative aspect-square overflow-hidden bg-muted"><img src="/assets/prod-robot-CG2PDJoK.jpg" alt="Robô GreenBot R2" loading="lazy" width="800" height="800" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/><span class="absolute left-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-medium backdrop-blur">🤖<!-- --> agtech</span></div><div class="flex flex-1 flex-col gap-3 p-5"><h3 class="text-lg font-semibold leading-tight">Robô GreenBot R2</h3><p class="text-sm text-muted-foreground">Capina autônoma sem herbicidas.</p><div class="mt-auto flex items-center justify-between gap-3 pt-2"><span class="text-xl font-bold">R$ 18.900,00</span><button class="relative overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform active:scale-95" style="background:var(--gradient-hero)"><span class="relative z-10 flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg> Semear</span></button></div></div></article></div></section><section id="porque" class="border-y border-border" style="background:var(--secondary)"><div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-3"><div class="rounded-2xl border border-border bg-card p-6"><div class="grid h-12 w-12 place-items-center rounded-xl text-primary-foreground" style="background:var(--gradient-hero)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-6 3 4 5-8"></path></svg></div><h3 class="mt-4 text-lg font-semibold">Dados que viram colheita</h3><p class="mt-2 text-sm text-muted-foreground">Sensores e drones traduzem a lavoura em métricas para decisões diárias.</p></div><div class="rounded-2xl border border-border bg-card p-6"><div class="grid h-12 w-12 place-items-center rounded-xl text-primary-foreground" style="background:var(--gradient-hero)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 12a6 6 0 0 1-12 0c0-5 6-12 6-12z"></path></svg></div><h3 class="mt-4 text-lg font-semibold">Sustentabilidade real</h3><p class="mt-2 text-sm text-muted-foreground">Reduza água, defensivos e diesel automatizando o que pode ser preciso.</p></div><div class="rounded-2xl border border-border bg-card p-6"><div class="grid h-12 w-12 place-items-center rounded-xl text-primary-foreground" style="background:var(--gradient-hero)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"></circle><circle cx="17" cy="18" r="2"></circle><path d="M10 17H4V9h6l2-5h4l1 5h3v5"></path></svg></div><h3 class="mt-4 text-lg font-semibold">Suporte no idioma do produtor</h3><p class="mt-2 text-sm text-muted-foreground">Equipe técnica em campo e por WhatsApp, do plantio à colheita.</p></div></div></section><footer id="contato" class="mx-auto max-w-7xl px-6 py-12"><div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-md text-primary-foreground" style="background:var(--gradient-hero)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"></path><path d="M4 20c4-4 8-6 13-7"></path></svg></span><span class="font-semibold">AgroTech.Store</span></div><p class="mt-2 text-sm text-muted-foreground">Cultivando o futuro do campo, uma linha de código por vez.</p></div><div class="text-sm text-muted-foreground">contato@agrotech.store · (62) 99999-0000</div></div><div class="mt-8 border-t border-border pt-6 text-xs text-muted-foreground">© 2026 AgroTech.Store · Tecnologia que cultiva resultados.</div></footer><div class="fixed inset-0 z-50 transition pointer-events-none"><div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity opacity-0"></div><aside class="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-border bg-card shadow-2xl transition-transform duration-500 translate-x-full"><div class="flex items-center justify-between border-b border-border px-6 py-4"><div><p class="text-xs uppercase tracking-widest text-muted-foreground">Sua colheita</p><h3 class="text-lg font-semibold">Carrinho (<!-- -->0<!-- -->)</h3></div><button class="rounded-full p-2 transition-colors hover:bg-muted" aria-label="Fechar">✕</button></div><div class="flex-1 overflow-y-auto p-6"><div class="grid h-full place-items-center text-center text-muted-foreground"><div><div class="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-full" style="background:var(--secondary)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"></path><path d="M12 11v11"></path></svg></div><p>Seu solo está fértil — adicione equipamentos para começar a colher.</p></div></div></div><div class="border-t border-border p-6"><div class="mb-4 flex justify-between text-sm"><span class="text-muted-foreground">Total da safra</span><span class="text-xl font-bold">R$ 0,00</span></div><button disabled="" class="relative w-full overflow-hidden rounded-full py-3 text-sm font-semibold text-primary-foreground transition-all disabled:opacity-50" style="background:var(--gradient-hero)">Colher pedido 🚜</button></div></aside></div><div class="pointer-events-none fixed inset-0 z-[60]"></div></div><script>(function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)})("tsr-scroll-restoration-v1_3");document.currentScript.remove()</script><!--/$--><script class="$tsr" id="$tsr-stream-barrier">(self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};$_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/assets/index-BQyOaKUL.js"],scripts:$R[5]=[$R[6]={attrs:$R[7]={type:"module",async:!0,src:"/assets/index-BQyOaKUL.js"}}]},"/":$R[8]={preloads:$R[9]=["/assets/routes-DWbxMdRq.js"]}}},matches:$R[10]=[$R[11]={i:"__root__",u:1782781375791,s:"success",ssr:!0},$R[12]={i:"",u:1782781375791,s:"success",ssr:!0}],lastMatchId:""})($R["tsr"]);$_TSR.e();document.currentScript.remove()</script><script type="module" async="" src="/assets/index-BQyOaKUL.js"></script><script src="https://cdn.gpteng.co/lovable.js" type="module"></script>
-<aside
-	id="lovable-badge"
-	role="complementary"
-	dir="ltr"
-	lang="en"
-	aria-label="Edit with Lovable">
-	<a
-		id="lovable-badge-cta" 
-		target="_blank" 
-		href="https://lovable.dev/projects/28019d9b-0cb2-402c-96cc-6f8c94cb76f7?utm_source=lovable-badge"
-		rel="noopener nofollow"
-		aria-label="Edit with Lovable">
-		<span id="lovable-badge-text">Edit with</span>
-		<svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
-  <path fill="#FCFBF8" fill-rule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clip-rule="evenodd"/>
-  <path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z"/>
-  <path fill="url(#a)" fill-rule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clip-rule="evenodd"/>
-  <defs>
-    <radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse">
-      <stop offset=".106" stop-color="#FE7B02"/>
-      <stop offset=".394" stop-color="#FE3F21"/>
-      <stop offset=".608" stop-color="#F858BC"/>
-      <stop offset=".929" stop-color="#575ECF"/>
-    </radialGradient>
-  </defs>
-</svg>
-
-
-	</a>
-	
-	<span id="lovable-badge-divider" aria-hidden="true"></span>
-	
-	<button 
-		id="lovable-badge-close"
-		aria-label="Dismiss"
-		title="Dismiss"
-		type="button">
-		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
-			<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z"/>
-		</svg>
-	</button>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"/><path d="M4 20c4-4 8-6 13-7"/></svg>
+      </span>
+      <span>Agro<b>Tech</b>.Store</span>
+    </a>
+    <nav><ul>
+      <li><a href="#produtos">Catálogo</a></li>
+      <li><a href="#porque">Por que AgroTech</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul></nav>
+    <button class="cart-btn" onclick="openCart(event)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 13H5L3 7z"/><path d="M8 7l4-5 4 5"/></svg>
+      <span>Colheita</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill"><span class="dot"></span> Safra 2026 · Tecnologia conectada ao campo</span>
+      <h1>A tecnologia que faz seu campo <span class="grad">germinar dados</span>.</h1>
+      <p class="lead">Drones, sensores, robôs e estações meteorológicas escolhidos para produtores que querem decidir com precisão e colher mais com menos.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" onclick="ripple(event); document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">Plantar no carrinho 🌱</button>
+        <a class="btn btn-ghost" href="#porque">Como funciona</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-k">+38%</div><div class="stat-v">produtividade</div></div>
+        <div><div class="stat-k">-42%</div><div class="stat-v">uso de água</div></div>
+        <div><div class="stat-k">24/7</div><div class="stat-v">monitoramento</div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-card">
+        <!-- Stylized field + drone illustration -->
+        <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#5cc26b"/>
+            </linearGradient>
+            <linearGradient id="field" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#3aa055"/><stop offset="1" stop-color="#1f5a2a"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="240" fill="url(#sky)"/>
+          <circle cx="480" cy="90" r="50" fill="#ffe9a3" opacity=".9"/>
+          <path d="M0 240 L600 240 L600 420 L0 420 Z" fill="url(#field)"/>
+          <g stroke="#1f5a2a" stroke-width="2" opacity=".5">
+            <path d="M0 270 Q300 250 600 270"/>
+            <path d="M0 300 Q300 280 600 305"/>
+            <path d="M0 335 Q300 315 600 345"/>
+            <path d="M0 375 Q300 355 600 390"/>
+          </g>
+          <!-- drone -->
+          <g transform="translate(290,160)">
+            <ellipse cx="0" cy="40" rx="60" ry="6" fill="#000" opacity=".15"/>
+            <rect x="-25" y="-8" width="50" height="16" rx="4" fill="#f5f5f5" stroke="#2f7a3e" stroke-width="1.5"/>
+            <circle cx="0" cy="10" r="6" fill="#1c2a1f"/>
+            <line x1="-25" y1="0" x2="-50" y2="-15" stroke="#444" stroke-width="2"/>
+            <line x1="25" y1="0" x2="50" y2="-15" stroke="#444" stroke-width="2"/>
+            <ellipse cx="-50" cy="-15" rx="20" ry="3" fill="#888" opacity=".6"/>
+            <ellipse cx="50" cy="-15" rx="20" ry="3" fill="#888" opacity=".6"/>
+            <line x1="-25" y1="0" x2="-50" y2="15" stroke="#444" stroke-width="2"/>
+            <line x1="25" y1="0" x2="50" y2="15" stroke="#444" stroke-width="2"/>
+            <ellipse cx="-50" cy="15" rx="20" ry="3" fill="#888" opacity=".6"/>
+            <ellipse cx="50" cy="15" rx="20" ry="3" fill="#888" opacity=".6"/>
+          </g>
+        </svg>
+        <div class="hero-tag">
+          <span class="live">Talhão 04 · NDVI 0.82</span>
+          <span>Atualizado agora</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="products" id="produtos">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Catálogo</div>
+        <h2>Equipamentos prontos para a próxima safra</h2>
+      </div>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+<section class="why" id="porque">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 5-8"/></svg></div>
+        <h3>Dados que viram colheita</h3>
+        <p>Sensores e drones traduzem a lavoura em métricas para decisões diárias.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 12a6 6 0 0 1-12 0c0-5 6-12 6-12z"/></svg></div>
+        <h3>Sustentabilidade real</h3>
+        <p>Reduza água, defensivos e diesel automatizando o que pode ser preciso.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="18" r="2"/><path d="M10 17H4V9h6l2-5h4l1 5h3v5"/></svg></div>
+        <h3>Suporte no idioma do produtor</h3>
+        <p>Equipe técnica em campo e por WhatsApp, do plantio à colheita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="contato">
+  <div class="container">
+    <div class="row">
+      <div class="logo">
+        <span class="logo-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"/><path d="M4 20c4-4 8-6 13-7"/></svg>
+        </span>
+        <span>AgroTech.Store</span>
+      </div>
+      <div>contato@agrotech.store · (62) 99999-0000</div>
+    </div>
+    <div class="copy">© 2026 AgroTech.Store · Tecnologia que cultiva resultados.</div>
+  </div>
+</footer>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Carrinho">
+  <div class="drawer-head">
+    <div>
+      <div class="kicker">Sua colheita</div>
+      <h3>Carrinho (<span id="drawerCount">0</span>)</h3>
+    </div>
+    <button class="close-btn" onclick="closeCart()" aria-label="Fechar">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Total da safra</span><span id="drawerTotal">R$ 0,00</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" onclick="checkout(event)" disabled>Colher pedido 🚜</button>
+  </div>
 </aside>
 <script>
-	// Don't show the lovable-badge if the page is in an iframe or if it's being rendered by puppeteer (screenshot service)
-	if (window.self !== window.top || navigator.userAgent.includes('puppeteer')) {
-		var badge = document.getElementById('lovable-badge');
-		if (badge) {
-			badge.style.display = 'none';
-		}
-	}
-
-	// Add click event listener to close button with animation
-	var closeButton = document.getElementById('lovable-badge-close');
-	if (closeButton) {
-		closeButton.addEventListener('click', function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			var badge = document.getElementById('lovable-badge');
-			if (badge) {
-				badge.classList.add('closing');
-				setTimeout(function() {
-					if (badge) {
-						badge.style.display = 'none';
-					}
-				}, 240);
-			}
-		});
-	}
+/* === Inline SVG product illustrations (no external images) === */
+const SVGS = {
+  drone: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><g transform='translate(100,110)'><ellipse cy='30' rx='55' ry='5' fill='#000' opacity='.15'/><rect x='-26' y='-10' width='52' height='20' rx='5' fill='#fff' stroke='#2f7a3e' stroke-width='2'/><circle cy='12' r='7' fill='#1c2a1f'/><line x1='-26' y1='0' x2='-55' y2='-18' stroke='#444' stroke-width='2.5'/><line x1='26' y1='0' x2='55' y2='-18' stroke='#444' stroke-width='2.5'/><ellipse cx='-55' cy='-18' rx='22' ry='3.5' fill='#888'/><ellipse cx='55' cy='-18' rx='22' ry='3.5' fill='#888'/><line x1='-26' y1='0' x2='-55' y2='18' stroke='#444' stroke-width='2.5'/><line x1='26' y1='0' x2='55' y2='18' stroke='#444' stroke-width='2.5'/><ellipse cx='-55' cy='18' rx='22' ry='3.5' fill='#888'/><ellipse cx='55' cy='18' rx='22' ry='3.5' fill='#888'/></g></svg>`,
+  sensor: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><path d='M0 150 Q100 130 200 150 L200 200 L0 200 Z' fill='#6b4a2b'/><line x1='100' y1='120' x2='100' y2='150' stroke='#444' stroke-width='3'/><rect x='80' y='95' width='40' height='30' rx='4' fill='#1c2a1f'/><rect x='84' y='99' width='32' height='14' fill='#3aa055'/><line x1='100' y1='95' x2='100' y2='65' stroke='#888' stroke-width='2'/><circle cx='100' cy='62' r='4' fill='#888'/><g transform='translate(60,130)'><path d='M0 0 Q-5 -15 5 -25 Q15 -10 5 -5 Z' fill='#3aa055'/><path d='M0 0 L5 -25' stroke='#1f5a2a'/></g></svg>`,
+  irrig: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='55' y='40' width='90' height='120' rx='10' fill='#fff' stroke='#3aa055' stroke-width='4'/><rect x='70' y='55' width='60' height='30' rx='3' fill='#1c2a1f'/><text x='100' y='77' text-anchor='middle' fill='#5cc26b' font-family='monospace' font-size='18' font-weight='bold'>20°</text><rect x='70' y='95' width='60' height='25' rx='3' fill='#dbeaf5'/><circle cx='80' cy='140' r='8' fill='#3aa055'/><circle cx='100' cy='140' r='8' fill='#3aa055'/><circle cx='120' cy='140' r='8' fill='#3aa055'/></svg>`,
+  gps: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='55' y='40' width='90' height='130' rx='10' fill='#2a2a2a'/><rect x='65' y='55' width='70' height='55' rx='4' fill='#1f5a2a'/><path d='M70 95 Q90 75 110 90 Q125 100 130 85' stroke='#e2a64b' stroke-width='3' fill='none'/><circle cx='110' cy='90' r='3' fill='#e2a64b'/><line x1='95' y1='30' x2='95' y2='45' stroke='#444' stroke-width='3'/><circle cx='95' cy='28' r='4' fill='#888'/><g fill='#444'><rect x='65' y='120' width='18' height='12' rx='2'/><rect x='91' y='120' width='18' height='12' rx='2'/><rect x='117' y='120' width='18' height='12' rx='2'/><rect x='65' y='138' width='18' height='12' rx='2'/><rect x='91' y='138' width='18' height='12' rx='2' fill='#e2a64b'/><rect x='117' y='138' width='18' height='12' rx='2'/></g></svg>`,
+  weather: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='95' y='80' width='6' height='100' fill='#666'/><rect x='115' y='50' width='55' height='40' fill='#1f3a5c' stroke='#444' stroke-width='2'/><g stroke='#5cc26b' stroke-width='.5'><line x1='115' y1='60' x2='170' y2='60'/><line x1='115' y1='70' x2='170' y2='70'/><line x1='115' y1='80' x2='170' y2='80'/><line x1='128' y1='50' x2='128' y2='90'/><line x1='142' y1='50' x2='142' y2='90'/><line x1='156' y1='50' x2='156' y2='90'/></g><circle cx='70' cy='70' r='25' fill='#fff' stroke='#444' stroke-width='2'/><line x1='70' y1='70' x2='70' y2='52' stroke='#c44' stroke-width='2'/><circle cx='70' cy='70' r='2' fill='#444'/><line x1='30' y1='70' x2='45' y2='70' stroke='#888' stroke-width='2'/><circle cx='30' cy='70' r='6' fill='#fff' stroke='#888' stroke-width='2'/></svg>`,
+  robot: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><path d='M0 160 L200 160 L200 200 L0 200 Z' fill='#3aa055' opacity='.3'/><rect x='50' y='70' width='100' height='50' rx='8' fill='#3aa055'/><rect x='60' y='80' width='80' height='25' rx='4' fill='#1c2a1f'/><circle cx='80' cy='92' r='6' fill='#ffe9a3'/><circle cx='120' cy='92' r='6' fill='#ffe9a3'/><rect x='40' y='120' width='120' height='30' rx='6' fill='#1c2a1f'/><circle cx='60' cy='160' r='18' fill='#222' stroke='#444' stroke-width='3'/><circle cx='60' cy='160' r='6' fill='#666'/><circle cx='140' cy='160' r='18' fill='#222' stroke='#444' stroke-width='3'/><circle cx='140' cy='160' r='6' fill='#666'/></svg>`
+};
+const PRODUCTS = [
+  { id:'drone',  name:'Drone AgroScan X1',          tag:'Mapeamento aéreo e NDVI em tempo real.',   price:12990, icon:'🛰️' },
+  { id:'sensor', name:'Sensor de Solo SoilPulse',   tag:'Umidade, pH e temperatura via LoRa.',      price:489,   icon:'🌱' },
+  { id:'irrig',  name:'Controlador IrrigaSmart',    tag:'Irrigação automatizada por zonas.',        price:1790,  icon:'💧' },
+  { id:'gps',    name:'GPS Rural TrailMap',         tag:'Demarcação de talhões e rotas.',           price:2350,  icon:'📡' },
+  { id:'weather',name:'Estação ClimaCampo',         tag:'Previsão hiperlocal com painel solar.',    price:3290,  icon:'☀️' },
+  { id:'robot',  name:'Robô GreenBot R2',           tag:'Capina autônoma sem herbicidas.',          price:18900, icon:'🤖' }
+];
+const BRL = n => n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const cart = {};
+function renderProducts(){
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = PRODUCTS.map(p => `
+    <article class="card">
+      <div class="thumb">${SVGS[p.id]}<span class="badge">${p.icon} agtech</span></div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p>${p.tag}</p>
+        <div class="card-foot">
+          <span class="price">${BRL(p.price)}</span>
+          <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}', event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"/><path d="M12 11v11"/></svg>
+            Semear
+          </button>
+        </div>
+      </div>
+    </article>`).join('');
+}
+function ripple(e){
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  r.style.left = e.clientX + 'px';
+  r.style.top = e.clientY + 'px';
+  document.body.appendChild(r);
+  setTimeout(()=>r.remove(), 900);
+}
+function addToCart(id, e){
+  ripple(e);
+  cart[id] = (cart[id]||0)+1;
+  updateCart();
+}
+function inc(id){ cart[id]++; updateCart(); }
+function dec(id){
+  cart[id]--;
+  if(cart[id]<=0) delete cart[id];
+  updateCart();
+}
+function updateCart(){
+  const entries = Object.entries(cart);
+  const count = entries.reduce((s,[,q])=>s+q,0);
+  const total = entries.reduce((s,[id,q])=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    return s + p.price*q;
+  },0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('drawerCount').textContent = count;
+  document.getElementById('drawerTotal').textContent = BRL(total);
+  document.getElementById('checkoutBtn').disabled = count===0;
+  const body = document.getElementById('drawerBody');
+  if(count===0){
+    body.innerHTML = `
+      <div class="empty">
+        <div>
+          <div class="empty-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3aa055" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"/><path d="M12 11v11"/></svg>
+          </div>
+          <p>Seu solo está fértil —<br>adicione equipamentos para começar a colher.</p>
+        </div>
+      </div>`;
+  } else {
+    body.innerHTML = entries.map(([id,q])=>{
+      const p = PRODUCTS.find(x=>x.id===id);
+      return `
+        <div class="item">
+          <div class="mini">${SVGS[id]}</div>
+          <div class="item-info">
+            <div class="item-top">
+              <span class="item-name">${p.name}</span>
+              <span class="item-total">${BRL(p.price*q)}</span>
+            </div>
+            <div class="qty">
+              <button onclick="dec('${id}')">−</button>
+              <span>${q}</span>
+              <button onclick="inc('${id}')">+</button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+}
+function openCart(e){ if(e) ripple(e); document.getElementById('overlay').classList.add('open'); document.getElementById('drawer').classList.add('open'); }
+function closeCart(){ document.getElementById('overlay').classList.remove('open'); document.getElementById('drawer').classList.remove('open'); }
+function checkout(e){ ripple(e); alert('Pedido enviado para o galpão! 🚜'); }
+renderProducts();
+updateCart();
 </script>
-</body></html>
+</body>
+</html>
