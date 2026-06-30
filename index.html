@@ -3,452 +3,315 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AgroTech Store — Tecnologia que cultiva resultados</title>
-<meta name="description" content="Lojinha de produtos tecnológicos para o agro: drones, sensores, irrigação inteligente, GPS e robôs autônomos." />
+<title>AgroTech Store — Tecnologia que cultiva o futuro</title>
+<meta name="description" content="Loja de produtos tecnológicos para o agronegócio: drones, sensores, estações meteorológicas e mais." />
 <style>
   :root{
-    --bg:#f6f8f1; --fg:#1c2a1f; --muted:#5d6b5f; --card:#ffffff;
-    --border:#dfe6d6; --primary:#2f7a3e; --primary-2:#5cc26b; --accent:#e2a64b;
-    --soil:#6b4a2b; --leaf:#3aa055;
-    --grad:linear-gradient(135deg,#1f5a2a 0%,#2f7a3e 50%,#5cc26b 100%);
-    --shadow:0 12px 30px -12px rgba(47,122,62,.35);
-    --radius:14px;
+    --verde-folha:#2e7d32;
+    --verde-escuro:#1b4d20;
+    --verde-claro:#a5d6a7;
+    --terra:#6d4c2b;
+    --milho:#f9c74f;
+    --bg:#f4f7f2;
+    --texto:#1c2a1e;
+    --branco:#ffffff;
+    --sombra:0 6px 18px rgba(27,77,32,.15);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    background:var(--bg);color:var(--fg);line-height:1.5;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(58,160,85,.06) 0 1px, transparent 1px 56px),
-      repeating-linear-gradient(0deg, rgba(107,74,43,.05) 0 1px, transparent 1px 56px);
-  }
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{max-width:1180px;margin:0 auto;padding:0 24px}
-  /* HEADER */
+  *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
+  body{background:var(--bg);color:var(--texto);line-height:1.5}
+
   header{
-    position:sticky;top:0;z-index:40;
-    background:rgba(246,248,241,.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+    background:linear-gradient(135deg,var(--verde-escuro),var(--verde-folha));
+    color:var(--branco);
+    padding:1rem 2rem;
+    display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:100;
+    box-shadow:var(--sombra);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
-  .logo-mark{
-    width:36px;height:36px;border-radius:10px;background:var(--grad);
-    display:grid;place-items:center;color:#fff;box-shadow:var(--shadow);
-    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  .logo{display:flex;align-items:center;gap:.6rem;font-size:1.4rem;font-weight:700}
+  .logo span.icon{font-size:1.8rem}
+  nav a{color:var(--branco);text-decoration:none;margin:0 .8rem;font-weight:500;opacity:.9;transition:opacity .2s}
+  nav a:hover{opacity:1;text-decoration:underline}
+  .btn-cart{
+    background:var(--milho);color:var(--verde-escuro);border:none;
+    padding:.6rem 1.1rem;border-radius:30px;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;gap:.4rem;
+    transition:transform .2s, box-shadow .2s;
   }
-  .logo:hover .logo-mark{transform:rotate(-8deg) scale(1.05)}
-  .logo span b{color:var(--leaf)}
-  nav ul{display:flex;gap:28px;list-style:none}
-  nav ul a{color:var(--muted);font-size:14px;transition:color .2s}
-  nav ul a:hover{color:var(--fg)}
-  .cart-btn{
-    display:flex;align-items:center;gap:8px;padding:8px 16px;
-    background:var(--card);border:1px solid var(--border);border-radius:999px;
-    cursor:pointer;font-weight:600;font-size:14px;color:var(--fg);
-    transition:all .25s;
+  .btn-cart:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+  .btn-cart:active{transform:scale(.95)}
+
+  .hero{
+    background:
+      linear-gradient(rgba(27,77,32,.7),rgba(46,125,50,.6)),
+      url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600') center/cover;
+    color:var(--branco);padding:5rem 2rem;text-align:center;
   }
-  .cart-btn:hover{border-color:var(--primary);box-shadow:var(--shadow);transform:translateY(-1px)}
-  .cart-count{
-    background:var(--primary);color:#fff;border-radius:999px;
-    min-width:22px;padding:2px 6px;font-size:12px;text-align:center;
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:1rem}
+  .hero p{font-size:1.2rem;max-width:680px;margin:0 auto 2rem;opacity:.95}
+  .hero button{
+    background:var(--milho);color:var(--verde-escuro);border:none;
+    padding:.9rem 2rem;font-size:1.05rem;border-radius:30px;cursor:pointer;font-weight:700;
+    transition:transform .25s, box-shadow .25s;
   }
-  @media(max-width:720px){ nav ul{display:none} }
-  /* HERO */
-  .hero{position:relative;padding:80px 0 60px;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
-  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr} }
-  .pill{
-    display:inline-flex;align-items:center;gap:8px;
-    border:1px solid var(--border);background:var(--card);
-    padding:6px 14px;border-radius:999px;font-size:12px;
-    text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
-  }
-  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf);animation:pulse 1.8s infinite}
-  @keyframes pulse{50%{opacity:.3;transform:scale(.7)}}
-  h1{font-size:clamp(34px,5vw,60px);line-height:1.05;margin-top:20px;letter-spacing:-.02em;font-weight:800}
-  h1 .grad{
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .lead{color:var(--muted);font-size:18px;margin-top:20px;max-width:540px}
-  .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
-  .btn{
-    position:relative;overflow:hidden;cursor:pointer;border:none;
-    padding:14px 24px;border-radius:999px;font-weight:600;font-size:14px;
-    transition:transform .25s, box-shadow .25s;font-family:inherit;
-  }
-  .btn-primary{background:var(--grad);color:#fff;box-shadow:var(--shadow)}
-  .btn-primary:hover{transform:translateY(-2px)}
-  .btn-ghost{background:var(--card);border:1px solid var(--border);color:var(--fg)}
-  .btn-ghost:hover{border-color:var(--primary)}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:420px;margin-top:48px}
-  .stat-k{font-size:26px;font-weight:800;color:var(--leaf)}
-  .stat-v{font-size:13px;color:var(--muted)}
-  .hero-art{position:relative}
-  .hero-art::before{
-    content:"";position:absolute;inset:-30px;border-radius:30px;
-    background:var(--grad);filter:blur(60px);opacity:.35;
-  }
-  .hero-card{
-    position:relative;border-radius:24px;overflow:hidden;
-    border:1px solid var(--border);box-shadow:var(--shadow);
-    aspect-ratio:16/11;
-    background:linear-gradient(135deg,#1f5a2a,#5cc26b);
-  }
-  .hero-card svg{position:absolute;inset:0;width:100%;height:100%}
-  .hero-tag{
-    position:absolute;left:16px;right:16px;bottom:16px;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:12px 16px;border-radius:16px;
-    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
-    color:#fff;font-size:12px;border:1px solid rgba(255,255,255,.15);
-  }
-  .hero-tag .live{display:flex;align-items:center;gap:8px}
-  .hero-tag .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#5cc26b;animation:pulse 1.5s infinite}
-  /* PRODUCTS */
-  section.products{padding:80px 0}
-  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:40px}
-  .sec-head .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  .sec-head h2{font-size:36px;letter-spacing:-.02em;margin-top:8px;font-weight:800}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .hero button:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+  section{padding:3.5rem 2rem;max-width:1200px;margin:0 auto}
+  h2.titulo{text-align:center;font-size:2rem;color:var(--verde-escuro);margin-bottom:.4rem}
+  .subtitulo{text-align:center;color:#555;margin-bottom:2.5rem}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
   .card{
-    background:linear-gradient(160deg,#fff 0%,#eef5e6 100%);
-    border:1px solid var(--border);border-radius:20px;overflow:hidden;
-    display:flex;flex-direction:column;
-    transition:transform .5s, box-shadow .5s, border-color .5s;
+    background:var(--branco);border-radius:14px;overflow:hidden;
+    box-shadow:var(--sombra);display:flex;flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease;
+    border-top:4px solid var(--verde-folha);
   }
-  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(47,122,62,.4)}
-  .thumb{position:relative;aspect-ratio:1;overflow:hidden;background:#eef0e8}
-  .thumb svg{width:100%;height:100%;transition:transform .7s}
-  .card:hover .thumb svg{transform:scale(1.06)}
-  .badge{
-    position:absolute;top:12px;left:12px;
-    background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
-    padding:4px 10px;border-radius:999px;font-size:12px;font-weight:500;
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(27,77,32,.25)}
+  .card .img{
+    height:170px;display:flex;align-items:center;justify-content:center;
+    font-size:4rem;background:linear-gradient(135deg,var(--verde-claro),#e8f5e9);
   }
-  .card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .card-body h3{font-size:17px;font-weight:700}
-  .card-body p{font-size:14px;color:var(--muted)}
-  .card-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px}
-  .price{font-size:20px;font-weight:800}
-  .btn-sm{padding:9px 16px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
-  .btn-sm:active{transform:scale(.95)}
-  /* WHY */
-  .why{background:#eaf1de;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 0}
-  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  @media(max-width:900px){.why-grid{grid-template-columns:1fr}}
-  .why-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px}
-  .why-ico{width:48px;height:48px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff}
-  .why-card h3{margin-top:16px;font-size:17px;font-weight:700}
-  .why-card p{margin-top:8px;font-size:14px;color:var(--muted)}
-  /* FOOTER */
-  footer{padding:48px 0;color:var(--muted);font-size:14px}
-  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
-  footer .copy{margin-top:24px;border-top:1px solid var(--border);padding-top:24px;font-size:12px}
-  /* CART DRAWER */
-  .overlay{
-    position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);
-    opacity:0;pointer-events:none;transition:opacity .4s;
+  .card .info{padding:1.1rem;flex:1;display:flex;flex-direction:column}
+  .card h3{color:var(--verde-escuro);margin-bottom:.4rem;font-size:1.1rem}
+  .card p.desc{color:#555;font-size:.9rem;margin-bottom:1rem;flex:1}
+  .card .preco{font-size:1.3rem;font-weight:700;color:var(--terra);margin-bottom:.8rem}
+  .btn-add{
+    background:var(--verde-folha);color:var(--branco);border:none;
+    padding:.7rem;border-radius:8px;cursor:pointer;font-weight:600;
+    display:flex;align-items:center;justify-content:center;gap:.5rem;
+    transition:background .2s, transform .15s;position:relative;overflow:hidden;
   }
+  .btn-add:hover{background:var(--verde-escuro)}
+  .btn-add:active{transform:scale(.96)}
+  .btn-add.added{background:var(--milho);color:var(--verde-escuro)}
+
+  @keyframes brotar{
+    0%{transform:translateY(20px) scale(.5);opacity:0}
+    50%{opacity:1}
+    100%{transform:translateY(-40px) scale(1.4);opacity:0}
+  }
+  .seed{position:absolute;font-size:1.2rem;pointer-events:none;animation:brotar .8s ease-out forwards}
+
+  .sobre{background:var(--branco);padding:3rem 2rem;border-radius:16px;box-shadow:var(--sombra);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+  .feature{text-align:center}
+  .feature .ic{font-size:2.5rem;margin-bottom:.6rem}
+  .feature h4{color:var(--verde-escuro);margin-bottom:.4rem}
+
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:200}
   .overlay.open{opacity:1;pointer-events:auto}
-  .drawer{
-    position:fixed;top:0;right:0;height:100%;width:100%;max-width:420px;z-index:55;
-    background:var(--card);border-left:1px solid var(--border);
+  .cart{
+    position:fixed;top:0;right:0;height:100vh;width:380px;max-width:100%;
+    background:var(--branco);box-shadow:-4px 0 20px rgba(0,0,0,.2);
+    transform:translateX(100%);transition:transform .35s ease;z-index:300;
     display:flex;flex-direction:column;
-    transform:translateX(100%);transition:transform .5s cubic-bezier(.4,.0,.2,1);
-    box-shadow:-20px 0 60px -20px rgba(0,0,0,.3);
   }
-  .drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border)}
-  .drawer-head .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .drawer-head h3{font-size:18px;font-weight:700;margin-top:4px}
-  .close-btn{background:none;border:none;cursor:pointer;font-size:18px;padding:8px;border-radius:50%}
-  .close-btn:hover{background:#eaf1de}
-  .drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
-  .empty{display:grid;place-items:center;height:100%;text-align:center;color:var(--muted)}
-  .empty-ico{width:64px;height:64px;border-radius:50%;background:#eaf1de;display:grid;place-items:center;margin:0 auto 12px}
-  .item{display:flex;gap:12px;border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:12px}
-  .item img,.item .mini{width:64px;height:64px;border-radius:10px;object-fit:cover;flex-shrink:0;background:#eef0e8}
-  .item-info{flex:1;min-width:0}
-  .item-top{display:flex;justify-content:space-between;gap:8px}
-  .item-name{font-size:14px;font-weight:600}
-  .item-total{font-size:14px;font-weight:700}
-  .qty{display:flex;align-items:center;gap:8px;margin-top:8px}
-  .qty button{
-    width:28px;height:28px;border-radius:50%;border:1px solid var(--border);
-    background:#fff;cursor:pointer;font-size:14px;
-  }
-  .qty button:hover{border-color:var(--primary)}
-  .drawer-foot{padding:20px 24px;border-top:1px solid var(--border)}
-  .total-row{display:flex;justify-content:space-between;margin-bottom:14px;font-size:14px;color:var(--muted)}
-  .total-row span:last-child{font-size:22px;font-weight:800;color:var(--fg)}
-  .btn-block{width:100%}
-  .btn:disabled{opacity:.5;cursor:not-allowed}
-  /* Ripple water-drop */
-  .ripple{
-    position:fixed;width:14px;height:14px;border-radius:50%;
-    pointer-events:none;transform:translate(-50%,-50%);z-index:90;
-    background:var(--leaf);opacity:.7;
-    animation:rip .9s ease-out forwards;
-  }
-  @keyframes rip{
-    0%{transform:translate(-50%,-50%) scale(.4);opacity:.7}
-    100%{transform:translate(-50%,-50%) scale(8);opacity:0}
-  }
+  .cart.open{transform:translateX(0)}
+  .cart-header{background:var(--verde-escuro);color:var(--branco);padding:1.2rem;display:flex;justify-content:space-between;align-items:center}
+  .cart-header h3{font-size:1.2rem}
+  .cart-close{background:transparent;border:none;color:var(--branco);font-size:1.5rem;cursor:pointer}
+  .cart-items{flex:1;overflow-y:auto;padding:1rem}
+  .cart-empty{text-align:center;color:#888;padding:2rem 1rem}
+  .cart-empty .ic{font-size:3rem;display:block;margin-bottom:.6rem}
+  .cart-item{display:flex;gap:.8rem;align-items:center;padding:.8rem 0;border-bottom:1px solid #eee}
+  .cart-item .emoji{font-size:2rem}
+  .cart-item .nome{flex:1;font-size:.95rem}
+  .cart-item .nome small{display:block;color:#777}
+  .qty{display:flex;align-items:center;gap:.4rem}
+  .qty button{width:26px;height:26px;border:none;border-radius:50%;background:var(--verde-claro);color:var(--verde-escuro);font-weight:700;cursor:pointer}
+  .qty button:hover{background:var(--verde-folha);color:var(--branco)}
+  .cart-footer{padding:1.2rem;border-top:2px solid #eee;background:#fafafa}
+  .total{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin-bottom:1rem}
+  .total .val{color:var(--terra)}
+  .btn-checkout{width:100%;background:var(--verde-folha);color:var(--branco);border:none;padding:.9rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
+  .btn-checkout:hover{background:var(--verde-escuro)}
+  .btn-checkout:disabled{background:#aaa;cursor:not-allowed}
+
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--verde-escuro);color:var(--branco);padding:.9rem 1.4rem;border-radius:30px;box-shadow:var(--sombra);z-index:400;transition:transform .35s ease;font-weight:500}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  footer{background:var(--verde-escuro);color:var(--branco);padding:2rem;text-align:center;margin-top:3rem}
+  footer p{opacity:.85;font-size:.9rem}
+  footer .social{margin-top:.6rem;font-size:1.4rem}
+  footer .social span{margin:0 .4rem;cursor:pointer;transition:transform .2s}
+  footer .social span:hover{transform:scale(1.2)}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="container nav">
-    <a href="#top" class="logo">
-      <span class="logo-mark">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"/><path d="M4 20c4-4 8-6 13-7"/></svg>
-      </span>
-      <span>Agro<b>Tech</b>.Store</span>
-    </a>
-    <nav><ul>
-      <li><a href="#produtos">Catálogo</a></li>
-      <li><a href="#porque">Por que AgroTech</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul></nav>
-    <button class="cart-btn" onclick="openCart(event)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 13H5L3 7z"/><path d="M8 7l4-5 4 5"/></svg>
-      <span>Colheita</span>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
+  <div class="logo"><span class="icon">🌱</span> AgroTech Store</div>
+  <nav>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Por que nós</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <button class="btn-cart" onclick="abrirCarrinho()">🚜 Carrinho (<span id="cart-count">0</span>)</button>
 </header>
-<section class="hero" id="top">
-  <div class="container hero-grid">
-    <div>
-      <span class="pill"><span class="dot"></span> Safra 2026 · Tecnologia conectada ao campo</span>
-      <h1>A tecnologia que faz seu campo <span class="grad">germinar dados</span>.</h1>
-      <p class="lead">Drones, sensores, robôs e estações meteorológicas escolhidos para produtores que querem decidir com precisão e colher mais com menos.</p>
-      <div class="cta-row">
-        <button class="btn btn-primary" onclick="ripple(event); document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">Plantar no carrinho 🌱</button>
-        <a class="btn btn-ghost" href="#porque">Como funciona</a>
-      </div>
-      <div class="stats">
-        <div><div class="stat-k">+38%</div><div class="stat-v">produtividade</div></div>
-        <div><div class="stat-k">-42%</div><div class="stat-v">uso de água</div></div>
-        <div><div class="stat-k">24/7</div><div class="stat-v">monitoramento</div></div>
-      </div>
-    </div>
-    <div class="hero-art">
-      <div class="hero-card">
-        <!-- Stylized field + drone illustration -->
-        <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#5cc26b"/>
-            </linearGradient>
-            <linearGradient id="field" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#3aa055"/><stop offset="1" stop-color="#1f5a2a"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="240" fill="url(#sky)"/>
-          <circle cx="480" cy="90" r="50" fill="#ffe9a3" opacity=".9"/>
-          <path d="M0 240 L600 240 L600 420 L0 420 Z" fill="url(#field)"/>
-          <g stroke="#1f5a2a" stroke-width="2" opacity=".5">
-            <path d="M0 270 Q300 250 600 270"/>
-            <path d="M0 300 Q300 280 600 305"/>
-            <path d="M0 335 Q300 315 600 345"/>
-            <path d="M0 375 Q300 355 600 390"/>
-          </g>
-          <!-- drone -->
-          <g transform="translate(290,160)">
-            <ellipse cx="0" cy="40" rx="60" ry="6" fill="#000" opacity=".15"/>
-            <rect x="-25" y="-8" width="50" height="16" rx="4" fill="#f5f5f5" stroke="#2f7a3e" stroke-width="1.5"/>
-            <circle cx="0" cy="10" r="6" fill="#1c2a1f"/>
-            <line x1="-25" y1="0" x2="-50" y2="-15" stroke="#444" stroke-width="2"/>
-            <line x1="25" y1="0" x2="50" y2="-15" stroke="#444" stroke-width="2"/>
-            <ellipse cx="-50" cy="-15" rx="20" ry="3" fill="#888" opacity=".6"/>
-            <ellipse cx="50" cy="-15" rx="20" ry="3" fill="#888" opacity=".6"/>
-            <line x1="-25" y1="0" x2="-50" y2="15" stroke="#444" stroke-width="2"/>
-            <line x1="25" y1="0" x2="50" y2="15" stroke="#444" stroke-width="2"/>
-            <ellipse cx="-50" cy="15" rx="20" ry="3" fill="#888" opacity=".6"/>
-            <ellipse cx="50" cy="15" rx="20" ry="3" fill="#888" opacity=".6"/>
-          </g>
-        </svg>
-        <div class="hero-tag">
-          <span class="live">Talhão 04 · NDVI 0.82</span>
-          <span>Atualizado agora</span>
-        </div>
-      </div>
-    </div>
+
+<section class="hero">
+  <h1>Tecnologia que faz o campo crescer 🌾</h1>
+  <p>Drones, sensores e ferramentas inteligentes para uma agricultura mais produtiva, sustentável e conectada.</p>
+  <button onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">🌱 Explorar produtos</button>
+</section>
+
+<section id="produtos">
+  <h2 class="titulo">Nossos Produtos</h2>
+  <p class="subtitulo">Soluções de ponta para o produtor moderno</p>
+  <div class="grid" id="grid-produtos"></div>
+</section>
+
+<section id="sobre">
+  <h2 class="titulo">Por que escolher a AgroTech?</h2>
+  <p class="subtitulo">Conectamos o campo à inovação</p>
+  <div class="sobre">
+    <div class="feature"><div class="ic">🛰️</div><h4>Tecnologia de precisão</h4><p>Equipamentos validados em campo por agrônomos.</p></div>
+    <div class="feature"><div class="ic">🌍</div><h4>Sustentabilidade</h4><p>Reduza insumos e proteja seu solo.</p></div>
+    <div class="feature"><div class="ic">🚚</div><h4>Entrega no campo</h4><p>Levamos até a sua propriedade rural.</p></div>
+    <div class="feature"><div class="ic">📞</div><h4>Suporte agro 24/7</h4><p>Equipe técnica pronta para ajudar.</p></div>
   </div>
 </section>
-<section class="products" id="produtos">
-  <div class="container">
-    <div class="sec-head">
-      <div>
-        <div class="kicker">Catálogo</div>
-        <h2>Equipamentos prontos para a próxima safra</h2>
-      </div>
-    </div>
-    <div class="grid" id="productGrid"></div>
-  </div>
-</section>
-<section class="why" id="porque">
-  <div class="container">
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 5-8"/></svg></div>
-        <h3>Dados que viram colheita</h3>
-        <p>Sensores e drones traduzem a lavoura em métricas para decisões diárias.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 12a6 6 0 0 1-12 0c0-5 6-12 6-12z"/></svg></div>
-        <h3>Sustentabilidade real</h3>
-        <p>Reduza água, defensivos e diesel automatizando o que pode ser preciso.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="18" r="2"/><path d="M10 17H4V9h6l2-5h4l1 5h3v5"/></svg></div>
-        <h3>Suporte no idioma do produtor</h3>
-        <p>Equipe técnica em campo e por WhatsApp, do plantio à colheita.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 <footer id="contato">
-  <div class="container">
-    <div class="row">
-      <div class="logo">
-        <span class="logo-mark">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 13-9 0 9-4 13-9 13z"/><path d="M4 20c4-4 8-6 13-7"/></svg>
-        </span>
-        <span>AgroTech.Store</span>
-      </div>
-      <div>contato@agrotech.store · (62) 99999-0000</div>
-    </div>
-    <div class="copy">© 2026 AgroTech.Store · Tecnologia que cultiva resultados.</div>
-  </div>
+  <div class="logo" style="justify-content:center">🌱 AgroTech Store</div>
+  <p>© 2026 — Cultivando o futuro com tecnologia</p>
+  <p>📧 contato@agrotech.store.com.br · 📱 (44) 99128-8570</p>
+  <div class="social"><span>🌐</span><span>📷</span><span>▶️</span></div>
 </footer>
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-<aside class="drawer" id="drawer" aria-label="Carrinho">
-  <div class="drawer-head">
-    <div>
-      <div class="kicker">Sua colheita</div>
-      <h3>Carrinho (<span id="drawerCount">0</span>)</h3>
-    </div>
-    <button class="close-btn" onclick="closeCart()" aria-label="Fechar">✕</button>
+
+<div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
+<aside class="cart" id="cart">
+  <div class="cart-header">
+    <h3>🚜 Sua Colheita</h3>
+    <button class="cart-close" onclick="fecharCarrinho()">✕</button>
   </div>
-  <div class="drawer-body" id="drawerBody"></div>
-  <div class="drawer-foot">
-    <div class="total-row"><span>Total da safra</span><span id="drawerTotal">R$ 0,00</span></div>
-    <button class="btn btn-primary btn-block" id="checkoutBtn" onclick="checkout(event)" disabled>Colher pedido 🚜</button>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="total">Total: <span class="val" id="total">R$ 0,00</span></div>
+    <button class="btn-checkout" id="checkout" onclick="finalizarCompra()">🌾 Colher pedido</button>
   </div>
 </aside>
+
+<div class="toast" id="toast"></div>
+
 <script>
-/* === Inline SVG product illustrations (no external images) === */
-const SVGS = {
-  drone: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><g transform='translate(100,110)'><ellipse cy='30' rx='55' ry='5' fill='#000' opacity='.15'/><rect x='-26' y='-10' width='52' height='20' rx='5' fill='#fff' stroke='#2f7a3e' stroke-width='2'/><circle cy='12' r='7' fill='#1c2a1f'/><line x1='-26' y1='0' x2='-55' y2='-18' stroke='#444' stroke-width='2.5'/><line x1='26' y1='0' x2='55' y2='-18' stroke='#444' stroke-width='2.5'/><ellipse cx='-55' cy='-18' rx='22' ry='3.5' fill='#888'/><ellipse cx='55' cy='-18' rx='22' ry='3.5' fill='#888'/><line x1='-26' y1='0' x2='-55' y2='18' stroke='#444' stroke-width='2.5'/><line x1='26' y1='0' x2='55' y2='18' stroke='#444' stroke-width='2.5'/><ellipse cx='-55' cy='18' rx='22' ry='3.5' fill='#888'/><ellipse cx='55' cy='18' rx='22' ry='3.5' fill='#888'/></g></svg>`,
-  sensor: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><path d='M0 150 Q100 130 200 150 L200 200 L0 200 Z' fill='#6b4a2b'/><line x1='100' y1='120' x2='100' y2='150' stroke='#444' stroke-width='3'/><rect x='80' y='95' width='40' height='30' rx='4' fill='#1c2a1f'/><rect x='84' y='99' width='32' height='14' fill='#3aa055'/><line x1='100' y1='95' x2='100' y2='65' stroke='#888' stroke-width='2'/><circle cx='100' cy='62' r='4' fill='#888'/><g transform='translate(60,130)'><path d='M0 0 Q-5 -15 5 -25 Q15 -10 5 -5 Z' fill='#3aa055'/><path d='M0 0 L5 -25' stroke='#1f5a2a'/></g></svg>`,
-  irrig: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='55' y='40' width='90' height='120' rx='10' fill='#fff' stroke='#3aa055' stroke-width='4'/><rect x='70' y='55' width='60' height='30' rx='3' fill='#1c2a1f'/><text x='100' y='77' text-anchor='middle' fill='#5cc26b' font-family='monospace' font-size='18' font-weight='bold'>20°</text><rect x='70' y='95' width='60' height='25' rx='3' fill='#dbeaf5'/><circle cx='80' cy='140' r='8' fill='#3aa055'/><circle cx='100' cy='140' r='8' fill='#3aa055'/><circle cx='120' cy='140' r='8' fill='#3aa055'/></svg>`,
-  gps: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='55' y='40' width='90' height='130' rx='10' fill='#2a2a2a'/><rect x='65' y='55' width='70' height='55' rx='4' fill='#1f5a2a'/><path d='M70 95 Q90 75 110 90 Q125 100 130 85' stroke='#e2a64b' stroke-width='3' fill='none'/><circle cx='110' cy='90' r='3' fill='#e2a64b'/><line x1='95' y1='30' x2='95' y2='45' stroke='#444' stroke-width='3'/><circle cx='95' cy='28' r='4' fill='#888'/><g fill='#444'><rect x='65' y='120' width='18' height='12' rx='2'/><rect x='91' y='120' width='18' height='12' rx='2'/><rect x='117' y='120' width='18' height='12' rx='2'/><rect x='65' y='138' width='18' height='12' rx='2'/><rect x='91' y='138' width='18' height='12' rx='2' fill='#e2a64b'/><rect x='117' y='138' width='18' height='12' rx='2'/></g></svg>`,
-  weather: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><rect x='95' y='80' width='6' height='100' fill='#666'/><rect x='115' y='50' width='55' height='40' fill='#1f3a5c' stroke='#444' stroke-width='2'/><g stroke='#5cc26b' stroke-width='.5'><line x1='115' y1='60' x2='170' y2='60'/><line x1='115' y1='70' x2='170' y2='70'/><line x1='115' y1='80' x2='170' y2='80'/><line x1='128' y1='50' x2='128' y2='90'/><line x1='142' y1='50' x2='142' y2='90'/><line x1='156' y1='50' x2='156' y2='90'/></g><circle cx='70' cy='70' r='25' fill='#fff' stroke='#444' stroke-width='2'/><line x1='70' y1='70' x2='70' y2='52' stroke='#c44' stroke-width='2'/><circle cx='70' cy='70' r='2' fill='#444'/><line x1='30' y1='70' x2='45' y2='70' stroke='#888' stroke-width='2'/><circle cx='30' cy='70' r='6' fill='#fff' stroke='#888' stroke-width='2'/></svg>`,
-  robot: `<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='#eef5e6'/><path d='M0 160 L200 160 L200 200 L0 200 Z' fill='#3aa055' opacity='.3'/><rect x='50' y='70' width='100' height='50' rx='8' fill='#3aa055'/><rect x='60' y='80' width='80' height='25' rx='4' fill='#1c2a1f'/><circle cx='80' cy='92' r='6' fill='#ffe9a3'/><circle cx='120' cy='92' r='6' fill='#ffe9a3'/><rect x='40' y='120' width='120' height='30' rx='6' fill='#1c2a1f'/><circle cx='60' cy='160' r='18' fill='#222' stroke='#444' stroke-width='3'/><circle cx='60' cy='160' r='6' fill='#666'/><circle cx='140' cy='160' r='18' fill='#222' stroke='#444' stroke-width='3'/><circle cx='140' cy='160' r='6' fill='#666'/></svg>`
-};
-const PRODUCTS = [
-  { id:'drone',  name:'Drone AgroScan X1',          tag:'Mapeamento aéreo e NDVI em tempo real.',   price:12990, icon:'🛰️' },
-  { id:'sensor', name:'Sensor de Solo SoilPulse',   tag:'Umidade, pH e temperatura via LoRa.',      price:489,   icon:'🌱' },
-  { id:'irrig',  name:'Controlador IrrigaSmart',    tag:'Irrigação automatizada por zonas.',        price:1790,  icon:'💧' },
-  { id:'gps',    name:'GPS Rural TrailMap',         tag:'Demarcação de talhões e rotas.',           price:2350,  icon:'📡' },
-  { id:'weather',name:'Estação ClimaCampo',         tag:'Previsão hiperlocal com painel solar.',    price:3290,  icon:'☀️' },
-  { id:'robot',  name:'Robô GreenBot R2',           tag:'Capina autônoma sem herbicidas.',          price:18900, icon:'🤖' }
+const produtos = [
+  {id:1, nome:"Drone Agrícola Pulverizador", emoji:"🚁", desc:"Pulverização autônoma de até 10ha/h com GPS RTK.", preco:48900},
+  {id:2, nome:"Sensor de Umidade do Solo", emoji:"💧", desc:"Monitoramento em tempo real via app. Bateria solar.", preco:349.90},
+  {id:3, nome:"Estação Meteorológica Smart", emoji:"🌦️", desc:"Previsão local, alertas de geada e chuva 4G.", preco:2150},
+  {id:4, nome:"Coleira GPS para Gado", emoji:"🐄", desc:"Rastreamento e monitoramento de saúde do rebanho.", preco:599},
+  {id:5, nome:"Trator Autônomo Compacto", emoji:"🚜", desc:"Operação remota e mapeamento de talhões.", preco:189000},
+  {id:6, nome:"Câmera NDVI para Lavoura", emoji:"📷", desc:"Análise da saúde das plantas por imagem espectral.", preco:4290},
+  {id:7, nome:"Irrigação Inteligente Solar", emoji:"☀️", desc:"Kit completo de irrigação por gotejamento automatizada.", preco:1899},
+  {id:8, nome:"App Gestão da Fazenda", emoji:"📱", desc:"Licença anual — controle de safra, custos e equipe.", preco:99.90}
 ];
-const BRL = n => n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const cart = {};
-function renderProducts(){
-  const grid = document.getElementById('productGrid');
-  grid.innerHTML = PRODUCTS.map(p => `
-    <article class="card">
-      <div class="thumb">${SVGS[p.id]}<span class="badge">${p.icon} agtech</span></div>
-      <div class="card-body">
-        <h3>${p.name}</h3>
-        <p>${p.tag}</p>
-        <div class="card-foot">
-          <span class="price">${BRL(p.price)}</span>
-          <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}', event)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"/><path d="M12 11v11"/></svg>
-            Semear
-          </button>
-        </div>
+
+let carrinho = JSON.parse(localStorage.getItem('agrocart') || '[]');
+
+const grid = document.getElementById('grid-produtos');
+produtos.forEach(p => {
+  grid.innerHTML += `
+    <div class="card">
+      <div class="img">${p.emoji}</div>
+      <div class="info">
+        <h3>${p.nome}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="preco">${formatar(p.preco)}</div>
+        <button class="btn-add" onclick="adicionar(${p.id}, this)">🌱 Plantar no carrinho</button>
       </div>
-    </article>`).join('');
+    </div>`;
+});
+
+function formatar(v){ return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
+
+function adicionar(id, btn){
+  const p = produtos.find(x=>x.id===id);
+  const item = carrinho.find(x=>x.id===id);
+  if(item) item.qty++;
+  else carrinho.push({...p, qty:1});
+  salvar();
+  animarSemente(btn);
+  btn.classList.add('added');
+  btn.innerHTML = '✅ Plantado!';
+  toast(`🌾 ${p.nome} adicionado!`);
+  setTimeout(()=>{btn.classList.remove('added');btn.innerHTML='🌱 Plantar no carrinho'},1400);
 }
-function ripple(e){
-  const r = document.createElement('span');
-  r.className = 'ripple';
-  r.style.left = e.clientX + 'px';
-  r.style.top = e.clientY + 'px';
-  document.body.appendChild(r);
-  setTimeout(()=>r.remove(), 900);
+
+function animarSemente(btn){
+  const seed = document.createElement('span');
+  seed.className='seed';
+  seed.textContent='🌱';
+  const r = btn.getBoundingClientRect();
+  seed.style.left=(r.left+r.width/2)+'px';
+  seed.style.top=(r.top)+'px';
+  seed.style.position='fixed';
+  document.body.appendChild(seed);
+  setTimeout(()=>seed.remove(),800);
 }
-function addToCart(id, e){
-  ripple(e);
-  cart[id] = (cart[id]||0)+1;
-  updateCart();
+
+function salvar(){
+  localStorage.setItem('agrocart', JSON.stringify(carrinho));
+  renderCarrinho();
 }
-function inc(id){ cart[id]++; updateCart(); }
-function dec(id){
-  cart[id]--;
-  if(cart[id]<=0) delete cart[id];
-  updateCart();
-}
-function updateCart(){
-  const entries = Object.entries(cart);
-  const count = entries.reduce((s,[,q])=>s+q,0);
-  const total = entries.reduce((s,[id,q])=>{
-    const p = PRODUCTS.find(x=>x.id===id);
-    return s + p.price*q;
-  },0);
-  document.getElementById('cartCount').textContent = count;
-  document.getElementById('drawerCount').textContent = count;
-  document.getElementById('drawerTotal').textContent = BRL(total);
-  document.getElementById('checkoutBtn').disabled = count===0;
-  const body = document.getElementById('drawerBody');
-  if(count===0){
-    body.innerHTML = `
-      <div class="empty">
-        <div>
-          <div class="empty-ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3aa055" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-6-7-6-11a6 6 0 0 1 12 0c0 4-2 8-6 11z"/><path d="M12 11v11"/></svg>
-          </div>
-          <p>Seu solo está fértil —<br>adicione equipamentos para começar a colher.</p>
-        </div>
-      </div>`;
+
+function renderCarrinho(){
+  const c = document.getElementById('cart-items');
+  const count = carrinho.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cart-count').textContent = count;
+  if(!carrinho.length){
+    c.innerHTML = '<div class="cart-empty"><span class="ic">🌾</span>Seu campo está vazio.<br>Comece a plantar produtos!</div>';
+    document.getElementById('checkout').disabled = true;
   } else {
-    body.innerHTML = entries.map(([id,q])=>{
-      const p = PRODUCTS.find(x=>x.id===id);
-      return `
-        <div class="item">
-          <div class="mini">${SVGS[id]}</div>
-          <div class="item-info">
-            <div class="item-top">
-              <span class="item-name">${p.name}</span>
-              <span class="item-total">${BRL(p.price*q)}</span>
-            </div>
-            <div class="qty">
-              <button onclick="dec('${id}')">−</button>
-              <span>${q}</span>
-              <button onclick="inc('${id}')">+</button>
-            </div>
-          </div>
-        </div>`;
-    }).join('');
+    document.getElementById('checkout').disabled = false;
+    c.innerHTML = carrinho.map(i=>`
+      <div class="cart-item">
+        <div class="emoji">${i.emoji}</div>
+        <div class="nome">${i.nome}<small>${formatar(i.preco)}</small></div>
+        <div class="qty">
+          <button onclick="mudarQty(${i.id},-1)">−</button>
+          <span>${i.qty}</span>
+          <button onclick="mudarQty(${i.id},1)">+</button>
+        </div>
+      </div>`).join('');
   }
+  const total = carrinho.reduce((s,i)=>s+i.preco*i.qty,0);
+  document.getElementById('total').textContent = formatar(total);
 }
-function openCart(e){ if(e) ripple(e); document.getElementById('overlay').classList.add('open'); document.getElementById('drawer').classList.add('open'); }
-function closeCart(){ document.getElementById('overlay').classList.remove('open'); document.getElementById('drawer').classList.remove('open'); }
-function checkout(e){ ripple(e); alert('Pedido enviado para o galpão! 🚜'); }
-renderProducts();
-updateCart();
+
+function mudarQty(id,d){
+  const it = carrinho.find(x=>x.id===id);
+  it.qty += d;
+  if(it.qty<=0) carrinho = carrinho.filter(x=>x.id!==id);
+  salvar();
+}
+
+function abrirCarrinho(){
+  document.getElementById('cart').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function fecharCarrinho(){
+  document.getElementById('cart').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+function finalizarCompra(){
+  toast('🚜 Colheita finalizada! Em breve em sua fazenda 🌾');
+  carrinho = [];
+  salvar();
+  setTimeout(fecharCarrinho, 1200);
+}
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+renderCarrinho();
 </script>
 </body>
 </html>
