@@ -39,13 +39,13 @@
         <input 
           type="search" 
           id="campoBusca" 
-          placeholder="Buscar por sementes, fertilizantes, solo, ferramentas..."
+          placeholder="Buscar por sementes, fertilizantes, solo..."
           aria-label="Buscar produtos"
         >
       </section>
 
       <section id="produtos" class="area-produtos">
-        <h2>Catálogo Completo</h2>
+        <h2>Catálogo de Produtos</h2>
 
         <div class="grid-produtos" id="listaProdutos">
           
@@ -209,52 +209,99 @@
             <button class="btn-adicionar">Adicionar ao carrinho</button>
           </article>
 
-          <article class="card" data-nome="enxada larga com cabo" data-preco="45.90">
-            <span>Ferramentas</span>
-            <h3>Enxada Larga com Cabo</h3>
-            <p>Aço temperado de alta resistência para capina e preparo manual de canteiros.</p>
-            <strong>R$ 45,90</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+        </div>
 
-          <article class="card" data-nome="facao para mato 18 polegadas" data-preco="35.50">
-            <span>Ferramentas</span>
-            <h3>Facão para Mato 18"</h3>
-            <p>Lâmina afiada e cabo ergonômico, ideal para roçada leve e trilhas.</p>
-            <strong>R$ 35,50</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+        <p id="mensagemBusca" class="mensagem"></p>
+      </section>
+    </div>
 
-          <article class="card" data-nome="pa quadrada" data-preco="52.00">
-            <span>Ferramentas</span>
-            <h3>Pá Quadrada</h3>
-            <p>Excelente para movimentação de terra, adubo e grãos com eficiência.</p>
-            <strong>R$ 52,00</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+    <div id="view-sobre" class="view-aba oculto-aba">
+      <section class="sobre-detalhado">
+        <h2>Mais do que vender, orientar</h2>
+        <p class="linha-foco">A AgroRaiz nasceu para aproximar tecnologia, conhecimento agronômico e soluções acessíveis para produtores, técnicos e cooperativas.</p>
+        
+        <div class="bloco-info-sobre">
+          <div class="card-info">
+            <h3>🌱 Nossa Missão</h3>
+            <p>Fortalecer a agricultura fornecendo insumos de alta qualidade e ferramentas tecnológicas que simplificam a tomada de decisão no campo.</p>
+          </div>
+          <div class="card-info">
+            <h3>🛡️ Compromisso MIP</h3>
+            <p>Apoiamos o Manejo Integrado de Pragas. Disponibilizamos soluções biológicas e ferramentas de monitoramento para uma lavoura sustentável.</p>
+          </div>
+          <div class="card-info">
+            <h3>🚜 Quem Atendemos</h3>
+            <p>Desde o pequeno produtor familiar até cooperativas e consultores agrícolas que buscam precisão e eficiência técnica na terra.</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
-          <article class="card" data-nome="cavadeira articulada" data-preco="78.00">
-            <span>Ferramentas</span>
-            <h3>Cavadeira Articulada</h3>
-            <p>Indispensável para abrir buracos estreitos para mourões e estacas.</p>
-            <strong>R$ 78,00</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+    <div id="view-contato" class="view-aba oculto-aba">
+      <section class="contato-container">
+        <h2>Fale com a nossa equipe de Agrônomos</h2>
+        <p>Dúvidas sobre dosagem, manejo de solo ou frete? Deixe sua mensagem ou utilize nossos canais oficiais.</p>
 
-          <article class="card" data-nome="tesoura de poda profissional" data-preco="89.90">
-            <span>Ferramentas</span>
-            <h3>Tesoura de Poda Profissional</h3>
-            <p>Corte limpo e preciso que evita contaminações em frutíferas e videiras.</p>
-            <strong>R$ 89,90</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+        <div class="grid-contato">
+          <form id="formContato" class="formulario-contato" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.'); this.reset();">
+            <div class="grupo-campo">
+              <label for="nomeContato">Nome Completo</label>
+              <input type="text" id="nomeContato" required placeholder="Digite seu nome">
+            </div>
+            <div class="grupo-campo">
+              <label for="emailContato">E-mail de Contato</label>
+              <input type="email" id="emailContato" required placeholder="exemplo@agro.com">
+            </div>
+            <div class="grupo-campo">
+              <label for="msgContato">Sua Dúvida ou Pedido</label>
+              <textarea id="msgContato" rows="5" required placeholder="Descreva o que você precisa para a sua lavoura..."></textarea>
+            </div>
+            <button type="submit" class="btn-finalizar">Enviar Mensagem</button>
+          </form>
 
-          <article class="card" data-nome="carrinho de mao reforcado" data-preco="250.00">
-            <span>Equipamentos</span>
-            <h3>Carrinho de Mão Reforçado</h3>
-            <p>Caçamba metálica profunda e pneu com câmara, suporta cargas pesadas.</p>
-            <strong>R$ 250,00</strong>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+          <div class="dados-contato">
+            <div class="item-dado">
+              <h4>📞 Telefone & WhatsApp</h4>
+              <p>(44) 99999-1234</p>
+            </div>
+            <div class="item-dado">
+              <h4>✉️ E-mail Institucional</h4>
+              <p>suporte@agroraiz.com.br</p>
+            </div>
+            <div class="item-dado">
+              <h4>🕒 Horário de Atendimento</h4>
+              <p>Segunda a Sexta: 07:30 às 17:30<br>Sábado: 08:00 às 12:00 (Horário de Brasília)</p>
+            </div>
+            <div class="item-dado">
+              <h4>📍 Sede Central</h4>
+              <p>Distrito Industrial Agrícola, Galpão 04<br>Paraná - Brasil</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
-          <article class="card" data-nome="mangueira de irrigacao 50m" data-
+  <footer id="contato">
+    <p>© 2026 AgroRaiz — Atendimento humano para quem vive o agro.</p>
+  </footer>
+
+  <aside id="sidebarCarrinho" class="carrinho-lateral oculto">
+    <div class="carrinho-cabecalho">
+      <h2>Seu Carrinho</h2>
+      <button id="btnFecharCarrinho" aria-label="Fechar carrinho">X</button>
+    </div>
+    <div id="listaItensCarrinho" class="carrinho-itens">
+      <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+    </div>
+    <div class="carrinho-rodape">
+      <p>Total: <strong id="totalCarrinho">R$ 0,00</strong></p>
+      <button class="btn-finalizar" onclick="alert('Pedido simulado com sucesso!');">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <div id="overlayCarrinho" class="overlay oculto"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
