@@ -8,15 +8,15 @@
 </head>
 
 <body>
-  <a href="#produtos" class="skip-link">Pular para os produtos</a>
+  <a href="#produtos" class="skip-link">Pular para o conteúdo</a>
 
   <header class="topo">
     <div class="logo">🌱 AgroRaiz</div>
 
     <nav aria-label="Menu principal">
-      <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+      <a href="#" data-aba="produtos" class="link-aba aba-ativa">Produtos</a>
+      <a href="#" data-aba="sobre" class="link-aba">Sobre</a>
+      <a href="#" data-aba="contato" class="link-aba">Contato</a>
       <button id="btnContraste" class="btn-nav" aria-label="Ativar modo de alto contraste">
         🌓 Alto contraste
       </button>
@@ -27,69 +27,161 @@
   </header>
 
   <main>
-    <section class="hero">
-      <span class="etiqueta">Loja agronômica online</span>
-      <h1>Produtos para quem cuida da terra com técnica e dedicação.</h1>
-      <p>
-        Aqui você encontra insumos, ferramentas e soluções para o dia a dia no campo,
-        com informação clara e atendimento próximo.
-      </p>
+    <div id="view-produtos" class="view-aba">
+      <section class="hero">
+        <span class="etiqueta">Loja agronômica online</span>
+        <h1>Produtos para quem cuida da terra com técnica e dedicação.</h1>
+        <p>
+          Aqui você encontra insumos, ferramentas e soluções para o dia a dia no campo,
+          com informação clara e atendimento próximo.
+        </p>
 
-      <input 
-        type="search" 
-        id="campoBusca" 
-        placeholder="Buscar por sementes, fertilizantes, solo..."
-        aria-label="Buscar produtos"
-      >
-    </section>
+        <input 
+          type="search" 
+          id="campoBusca" 
+          placeholder="Buscar por sementes, fertilizantes, solo..."
+          aria-label="Buscar produtos"
+        >
+      </section>
 
-    <section id="produtos" class="area-produtos">
-      <h2>Produtos em destaque</h2>
+      <section id="produtos" class="area-produtos">
+        <h2>Produtos em destaque</h2>
 
-      <div class="grid-produtos" id="listaProdutos">
-        <article class="card" data-nome="semente de milho" data-preco="218.90">
-          <span>Sementes</span>
-          <h3>Semente de Milho Safra Forte</h3>
-          <p>Boa adaptação ao campo e indicada para produtores que buscam estabilidade na lavoura.</p>
-          <strong>R$ 218,90</strong>
-          <button class="btn-adicionar">Adicionar ao carrinho</button>
-        </article>
+        <div class="grid-produtos" id="listaProdutos">
+          <article class="card" data-nome="semente de milho" data-preco="218.90">
+            <span>Sementes</span>
+            <h3>Semente de Milho Safra Forte</h3>
+            <p>Boa adaptação ao campo e indicada para produtores que buscam estabilidade na lavoura.</p>
+            <strong>R$ 218,90</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
 
-        <article class="card" data-nome="fertilizante npk" data-preco="154.90">
-          <span>Fertilizantes</span>
-          <h3>Fertilizante NPK 04-14-08</h3>
-          <p>Auxilia no desenvolvimento inicial das plantas e na correção nutricional do solo.</p>
-          <strong>R$ 154,90</strong>
-          <button class="btn-adicionar">Adicionar ao carrinho</button>
-        </article>
+          <article class="card" data-nome="fertilizante npk" data-preco="154.90">
+            <span>Fertilizantes</span>
+            <h3>Fertilizante NPK 04-14-08</h3>
+            <p>Auxilia no desenvolvimento inicial das plantas e na correção nutricional do solo.</p>
+            <strong>R$ 154,90</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
 
-        <article class="card" data-nome="kit analise solo" data-preco="239.90">
-          <span>Análise</span>
-          <h3>Kit de Análise de Solo</h3>
-          <p>Uma opção prática para avaliações preliminares antes do manejo técnico da área.</p>
-          <strong>R$ 239,90</strong>
-          <button class="btn-adicionar">Adicionar ao carrinho</button>
-        </article>
+          <article class="card" data-nome="kit analise solo" data-preco="239.90">
+            <span>Análise</span>
+            <h3>Kit de Análise de Solo</h3>
+            <p>Uma opção prática para avaliações preliminares antes do manejo técnico da área.</p>
+            <strong>R$ 239,90</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
 
-        <article class="card" data-nome="sensor umidade" data-preco="389.90">
-          <span>Tecnologia</span>
-          <h3>Sensor de Umidade do Solo</h3>
-          <p>Ajuda no acompanhamento da irrigação e no uso mais consciente da água.</p>
-          <strong>R$ 389,90</strong>
-          <button class="btn-adicionar">Adicionar ao carrinho</button>
-        </article>
-      </div>
+          <article class="card" data-nome="sensor umidade" data-preco="389.90">
+            <span>Tecnologia</span>
+            <h3>Sensor de Umidade do Solo</h3>
+            <p>Ajuda no acompanhamento da irrigação e no uso mais consciente da água.</p>
+            <strong>R$ 389,90</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
 
-      <p id="mensagemBusca" class="mensagem"></p>
-    </section>
+          <article class="card" data-nome="semente de soja" data-preco="295.00">
+            <span>Sementes</span>
+            <h3>Semente de Soja Ouro Negro</h3>
+            <p>Alta taxa de germinação e excelente teto produtivo para safras exigentes.</p>
+            <strong>R$ 295,00</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
 
-    <section id="sobre" class="sobre">
-      <h2>Mais do que vender, orientar</h2>
-      <p>
-        A AgroRaiz nasceu para aproximar tecnologia, conhecimento agronômico
-        e soluções acessíveis para produtores, técnicos e cooperativas.
-      </p>
-    </section>
+          <article class="card" data-nome="pulverizador costal" data-preco="340.00">
+            <span>Equipamentos</span>
+            <h3>Pulverizador Costal Pro 20L</h3>
+            <p>Ergonômico, resistente a impactos e ideal para aplicação precisa de defensivos e biológicos.</p>
+            <strong>R$ 340,00</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
+
+          <article class="card" data-nome="oleo de neem inseticida" data-preco="85.50">
+            <span>Defensivos Orgânicos</span>
+            <h3>Óleo de Neem Puro 1 Litro</h3>
+            <p>Solução natural e eficiente para o controle integrado de pragas (MIP) em lavouras e hortas.</p>
+            <strong>R$ 85,50</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
+
+          <article class="card" data-nome="medidor de ph digital" data-preco="179.00">
+            <span>Tecnologia</span>
+            <h3>Medidor de pH e Temperatura</h3>
+            <p>Ferramenta portátil indispensável para checar a acidez do solo e preparar caldas de pulverização.</p>
+            <strong>R$ 179,00</strong>
+            <button class="btn-adicionar">Adicionar ao carrinho</button>
+          </article>
+        </div>
+
+        <p id="mensagemBusca" class="mensagem"></p>
+      </section>
+    </div>
+
+    <div id="view-sobre" class="view-aba oculto-aba">
+      <section class="sobre-detalhado">
+        <h2>Mais do que vender, orientar</h2>
+        <p class="linha-foco">A AgroRaiz nasceu para aproximar tecnologia, conhecimento agronômico e soluções acessíveis para produtores, técnicos e cooperativas.</p>
+        
+        <div class="bloco-info-sobre">
+          <div class="card-info">
+            <h3>🌱 Nossa Missão</h3>
+            <p>Fortalecer a agricultura fornecendo insumos de alta qualidade e ferramentas tecnológicas que simplificam a tomada de decisão no campo.</p>
+          </div>
+          <div class="card-info">
+            <h3>🛡️ Compromisso MIP</h3>
+            <p>Apoiamos o Manejo Integrado de Pragas. Disponibilizamos soluções biológicas e ferramentas de monitoramento para uma lavoura sustentável.</p>
+          </div>
+          <div class="card-info">
+            <h3>🚜 Quem Atendemos</h3>
+            <p>Desde o pequeno produtor familiar até cooperativas e consultores agrícolas que buscam precisão e eficiência técnica na terra.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="view-contato" class="view-aba oculto-aba">
+      <section class="contato-container">
+        <h2>Fale com a nossa equipe de Agrônomos</h2>
+        <p>Dúvidas sobre dosagem, manejo de solo ou frete? Deixe sua mensagem ou utilize nossos canais oficiais.</p>
+
+        <div class="grid-contato">
+          <form id="formContato" class="formulario-contato" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.'); this.reset();">
+            <div class="grupo-campo">
+              <label for="nomeContato">Nome Completo</label>
+              <input type="text" id="nomeContato" required placeholder="Digite seu nome">
+            </div>
+            <div class="grupo-campo">
+              <label for="emailContato">E-mail de Contato</label>
+              <input type="email" id="emailContato" required placeholder="exemplo@agro.com">
+            </div>
+            <div class="grupo-campo">
+              <label for="msgContato">Sua Dúvida ou Pedido</label>
+              <textarea id="msgContato" rows="5" required placeholder="Descreva o que você precisa para a sua lavoura..."></textarea>
+            </div>
+            <button type="submit" class="btn-finalizar">Enviar Mensagem</button>
+          </form>
+
+          <div class="dados-contato">
+            <div class="item-dado">
+              <h4>📞 Telefone & WhatsApp</h4>
+              <p>(44) 99999-1234</p>
+            </div>
+            <div class="item-dado">
+              <h4>✉️ E-mail Institucional</h4>
+              <p>suporte@agroraiz.com.br</p>
+            </div>
+            <div class="item-dado">
+              <h4>🕒 Horário de Atendimento</h4>
+              <p>Segunda a Sexta: 07:30 às 17:30<br>Sábado: 08:00 às 12:00 (Horário de Brasília)</p>
+            </div>
+            <div class="item-dado">
+              <h4>📍 Sede Central</h4>
+              <p>Distrito Industrial Agrícola, Galpão 04<br>Paraná - Brasil</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer id="contato">
@@ -106,7 +198,7 @@
     </div>
     <div class="carrinho-rodape">
       <p>Total: <strong id="totalCarrinho">R$ 0,00</strong></p>
-      <button class="btn-finalizar">Finalizar Compra</button>
+      <button class="btn-finalizar" onclick="alert('Pedido simulado com sucesso!');">Finalizar Compra</button>
     </div>
   </aside>
 
