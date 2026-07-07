@@ -1,317 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AgroTech Store — Tecnologia que cultiva o futuro</title>
-<meta name="description" content="Loja de produtos tecnológicos para o agronegócio: drones, sensores, estações meteorológicas e mais." />
-<style>
-  :root{
-    --verde-folha:#2e7d32;
-    --verde-escuro:#1b4d20;
-    --verde-claro:#a5d6a7;
-    --terra:#6d4c2b;
-    --milho:#f9c74f;
-    --bg:#f4f7f2;
-    --texto:#1c2a1e;
-    --branco:#ffffff;
-    --sombra:0 6px 18px rgba(27,77,32,.15);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
-  body{background:var(--bg);color:var(--texto);line-height:1.5}
-
-  header{
-    background:linear-gradient(135deg,var(--verde-escuro),var(--verde-folha));
-    color:var(--branco);
-    padding:1rem 2rem;
-    display:flex;align-items:center;justify-content:space-between;
-    position:sticky;top:0;z-index:100;
-    box-shadow:var(--sombra);
-  }
-  .logo{display:flex;align-items:center;gap:.6rem;font-size:1.4rem;font-weight:700}
-  .logo span.icon{font-size:1.8rem}
-  nav a{color:var(--branco);text-decoration:none;margin:0 .8rem;font-weight:500;opacity:.9;transition:opacity .2s}
-  nav a:hover{opacity:1;text-decoration:underline}
-  .btn-cart{
-    background:var(--milho);color:var(--verde-escuro);border:none;
-    padding:.6rem 1.1rem;border-radius:30px;font-weight:700;cursor:pointer;
-    display:flex;align-items:center;gap:.4rem;
-    transition:transform .2s, box-shadow .2s;
-  }
-  .btn-cart:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 4px 12px rgba(0,0,0,.2)}
-  .btn-cart:active{transform:scale(.95)}
-
-  .hero{
-    background:
-      linear-gradient(rgba(27,77,32,.7),rgba(46,125,50,.6)),
-      url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600') center/cover;
-    color:var(--branco);padding:5rem 2rem;text-align:center;
-  }
-  .hero h1{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:1rem}
-  .hero p{font-size:1.2rem;max-width:680px;margin:0 auto 2rem;opacity:.95}
-  .hero button{
-    background:var(--milho);color:var(--verde-escuro);border:none;
-    padding:.9rem 2rem;font-size:1.05rem;border-radius:30px;cursor:pointer;font-weight:700;
-    transition:transform .25s, box-shadow .25s;
-  }
-  .hero button:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
-
-  section{padding:3.5rem 2rem;max-width:1200px;margin:0 auto}
-  h2.titulo{text-align:center;font-size:2rem;color:var(--verde-escuro);margin-bottom:.4rem}
-  .subtitulo{text-align:center;color:#555;margin-bottom:2.5rem}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
-  .card{
-    background:var(--branco);border-radius:14px;overflow:hidden;
-    box-shadow:var(--sombra);display:flex;flex-direction:column;
-    transition:transform .3s ease, box-shadow .3s ease;
-    border-top:4px solid var(--verde-folha);
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(27,77,32,.25)}
-  .card .img{
-    height:170px;display:flex;align-items:center;justify-content:center;
-    font-size:4rem;background:linear-gradient(135deg,var(--verde-claro),#e8f5e9);
-  }
-  .card .info{padding:1.1rem;flex:1;display:flex;flex-direction:column}
-  .card h3{color:var(--verde-escuro);margin-bottom:.4rem;font-size:1.1rem}
-  .card p.desc{color:#555;font-size:.9rem;margin-bottom:1rem;flex:1}
-  .card .preco{font-size:1.3rem;font-weight:700;color:var(--terra);margin-bottom:.8rem}
-  .btn-add{
-    background:var(--verde-folha);color:var(--branco);border:none;
-    padding:.7rem;border-radius:8px;cursor:pointer;font-weight:600;
-    display:flex;align-items:center;justify-content:center;gap:.5rem;
-    transition:background .2s, transform .15s;position:relative;overflow:hidden;
-  }
-  .btn-add:hover{background:var(--verde-escuro)}
-  .btn-add:active{transform:scale(.96)}
-  .btn-add.added{background:var(--milho);color:var(--verde-escuro)}
-
-  @keyframes brotar{
-    0%{transform:translateY(20px) scale(.5);opacity:0}
-    50%{opacity:1}
-    100%{transform:translateY(-40px) scale(1.4);opacity:0}
-  }
-  .seed{position:absolute;font-size:1.2rem;pointer-events:none;animation:brotar .8s ease-out forwards}
-
-  .sobre{background:var(--branco);padding:3rem 2rem;border-radius:16px;box-shadow:var(--sombra);
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
-  .feature{text-align:center}
-  .feature .ic{font-size:2.5rem;margin-bottom:.6rem}
-  .feature h4{color:var(--verde-escuro);margin-bottom:.4rem}
-
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:200}
-  .overlay.open{opacity:1;pointer-events:auto}
-  .cart{
-    position:fixed;top:0;right:0;height:100vh;width:380px;max-width:100%;
-    background:var(--branco);box-shadow:-4px 0 20px rgba(0,0,0,.2);
-    transform:translateX(100%);transition:transform .35s ease;z-index:300;
-    display:flex;flex-direction:column;
-  }
-  .cart.open{transform:translateX(0)}
-  .cart-header{background:var(--verde-escuro);color:var(--branco);padding:1.2rem;display:flex;justify-content:space-between;align-items:center}
-  .cart-header h3{font-size:1.2rem}
-  .cart-close{background:transparent;border:none;color:var(--branco);font-size:1.5rem;cursor:pointer}
-  .cart-items{flex:1;overflow-y:auto;padding:1rem}
-  .cart-empty{text-align:center;color:#888;padding:2rem 1rem}
-  .cart-empty .ic{font-size:3rem;display:block;margin-bottom:.6rem}
-  .cart-item{display:flex;gap:.8rem;align-items:center;padding:.8rem 0;border-bottom:1px solid #eee}
-  .cart-item .emoji{font-size:2rem}
-  .cart-item .nome{flex:1;font-size:.95rem}
-  .cart-item .nome small{display:block;color:#777}
-  .qty{display:flex;align-items:center;gap:.4rem}
-  .qty button{width:26px;height:26px;border:none;border-radius:50%;background:var(--verde-claro);color:var(--verde-escuro);font-weight:700;cursor:pointer}
-  .qty button:hover{background:var(--verde-folha);color:var(--branco)}
-  .cart-footer{padding:1.2rem;border-top:2px solid #eee;background:#fafafa}
-  .total{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin-bottom:1rem}
-  .total .val{color:var(--terra)}
-  .btn-checkout{width:100%;background:var(--verde-folha);color:var(--branco);border:none;padding:.9rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
-  .btn-checkout:hover{background:var(--verde-escuro)}
-  .btn-checkout:disabled{background:#aaa;cursor:not-allowed}
-
-  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--verde-escuro);color:var(--branco);padding:.9rem 1.4rem;border-radius:30px;box-shadow:var(--sombra);z-index:400;transition:transform .35s ease;font-weight:500}
-  .toast.show{transform:translateX(-50%) translateY(0)}
-
-  footer{background:var(--verde-escuro);color:var(--branco);padding:2rem;text-align:center;margin-top:3rem}
-  footer p{opacity:.85;font-size:.9rem}
-  footer .social{margin-top:.6rem;font-size:1.4rem}
-  footer .social span{margin:0 .4rem;cursor:pointer;transition:transform .2s}
-  footer .social span:hover{transform:scale(1.2)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroRaiz | Loja de Produtos Agronômicos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <a href="#produtos" class="skip-link">Pular para os produtos</a>
 
-<header>
-  <div class="logo"><span class="icon">🌱</span> AgroTech Store</div>
-  <nav>
-    <a href="#produtos">Produtos</a>
-    <a href="#sobre">Por que nós</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <button class="btn-cart" onclick="abrirCarrinho()">🚜 Carrinho (<span id="cart-count">0</span>)</button>
-</header>
+  <header class="topo">
+    <div class="logo">🌱 AgroRaiz</div>
 
-<section class="hero">
-  <h1>Tecnologia que faz o campo crescer 🌾</h1>
-  <p>Drones, sensores e ferramentas inteligentes para uma agricultura mais produtiva, sustentável e conectada.</p>
-  <button onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">🌱 Explorar produtos</button>
-</section>
+    <nav aria-label="Menu principal">
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <button id="btnContraste" aria-label="Ativar modo de alto contraste">
+        Alto contraste
+      </button>
+    </nav>
+  </header>
 
-<section id="produtos">
-  <h2 class="titulo">Nossos Produtos</h2>
-  <p class="subtitulo">Soluções de ponta para o produtor moderno</p>
-  <div class="grid" id="grid-produtos"></div>
-</section>
+  <main>
+    <section class="hero">
+      <span class="etiqueta">Loja agronômica online</span>
+      <h1>Produtos para quem cuida da terra com técnica e dedicação.</h1>
+      <p>
+        Aqui você encontra insumos, ferramentas e soluções para o dia a dia no campo,
+        com informação clara e atendimento próximo.
+      </p>
 
-<section id="sobre">
-  <h2 class="titulo">Por que escolher a AgroTech?</h2>
-  <p class="subtitulo">Conectamos o campo à inovação</p>
-  <div class="sobre">
-    <div class="feature"><div class="ic">🛰️</div><h4>Tecnologia de precisão</h4><p>Equipamentos validados em campo por agrônomos.</p></div>
-    <div class="feature"><div class="ic">🌍</div><h4>Sustentabilidade</h4><p>Reduza insumos e proteja seu solo.</p></div>
-    <div class="feature"><div class="ic">🚚</div><h4>Entrega no campo</h4><p>Levamos até a sua propriedade rural.</p></div>
-    <div class="feature"><div class="ic">📞</div><h4>Suporte agro 24/7</h4><p>Equipe técnica pronta para ajudar.</p></div>
-  </div>
-</section>
+      <input 
+        type="search" 
+        id="campoBusca" 
+        placeholder="Buscar por sementes, fertilizantes, solo..."
+        aria-label="Buscar produtos"
+      >
+    </section>
 
-<footer id="contato">
-  <div class="logo" style="justify-content:center">🌱 AgroTech Store</div>
-  <p>© 2026 — Cultivando o futuro com tecnologia</p>
-  <p>📧 contato@agrotech.store.com.br · 📱 (44) 99128-8570</p>
-  <div class="social"><span>🌐</span><span>📷</span><span>▶️</span></div>
-</footer>
+    <section id="produtos" class="area-produtos">
+      <h2>Produtos em destaque</h2>
 
-<div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
-<aside class="cart" id="cart">
-  <div class="cart-header">
-    <h3>🚜 Sua Colheita</h3>
-    <button class="cart-close" onclick="fecharCarrinho()">✕</button>
-  </div>
-  <div class="cart-items" id="cart-items"></div>
-  <div class="cart-footer">
-    <div class="total">Total: <span class="val" id="total">R$ 0,00</span></div>
-    <button class="btn-checkout" id="checkout" onclick="finalizarCompra()">🌾 Colher pedido</button>
-  </div>
-</aside>
+      <div class="grid-produtos" id="listaProdutos">
+        <article class="card" data-nome="semente de milho">
+          <span>Sementes</span>
+          <h3>Semente de Milho Safra Forte</h3>
+          <p>Boa adaptação ao campo e indicada para produtores que buscam estabilidade na lavoura.</p>
+          <strong>R$ 218,90</strong>
+          <button>Adicionar ao carrinho</button>
+        </article>
 
-<div class="toast" id="toast"></div>
+        <article class="card" data-nome="fertilizante npk">
+          <span>Fertilizantes</span>
+          <h3>Fertilizante NPK 04-14-08</h3>
+          <p>Auxilia no desenvolvimento inicial das plantas e na correção nutricional do solo.</p>
+          <strong>R$ 154,90</strong>
+          <button>Adicionar ao carrinho</button>
+        </article>
 
-<script>
-const produtos = [
-  {id:1, nome:"Drone Agrícola Pulverizador", emoji:"🚁", desc:"Pulverização autônoma de até 10ha/h com GPS RTK.", preco:48900},
-  {id:2, nome:"Sensor de Umidade do Solo", emoji:"💧", desc:"Monitoramento em tempo real via app. Bateria solar.", preco:349.90},
-  {id:3, nome:"Estação Meteorológica Smart", emoji:"🌦️", desc:"Previsão local, alertas de geada e chuva 4G.", preco:2150},
-  {id:4, nome:"Coleira GPS para Gado", emoji:"🐄", desc:"Rastreamento e monitoramento de saúde do rebanho.", preco:599},
-  {id:5, nome:"Trator Autônomo Compacto", emoji:"🚜", desc:"Operação remota e mapeamento de talhões.", preco:189000},
-  {id:6, nome:"Câmera NDVI para Lavoura", emoji:"📷", desc:"Análise da saúde das plantas por imagem espectral.", preco:4290},
-  {id:7, nome:"Irrigação Inteligente Solar", emoji:"☀️", desc:"Kit completo de irrigação por gotejamento automatizada.", preco:1899},
-  {id:8, nome:"App Gestão da Fazenda", emoji:"📱", desc:"Licença anual — controle de safra, custos e equipe.", preco:99.90}
-];
+        <article class="card" data-nome="kit analise solo">
+          <span>Análise</span>
+          <h3>Kit de Análise de Solo</h3>
+          <p>Uma opção prática para avaliações preliminares antes do manejo técnico da área.</p>
+          <strong>R$ 239,90</strong>
+          <button>Adicionar ao carrinho</button>
+        </article>
 
-let carrinho = JSON.parse(localStorage.getItem('agrocart') || '[]');
-
-const grid = document.getElementById('grid-produtos');
-produtos.forEach(p => {
-  grid.innerHTML += `
-    <div class="card">
-      <div class="img">${p.emoji}</div>
-      <div class="info">
-        <h3>${p.nome}</h3>
-        <p class="desc">${p.desc}</p>
-        <div class="preco">${formatar(p.preco)}</div>
-        <button class="btn-add" onclick="adicionar(${p.id}, this)">🌱 Plantar no carrinho</button>
+        <article class="card" data-nome="sensor umidade">
+          <span>Tecnologia</span>
+          <h3>Sensor de Umidade do Solo</h3>
+          <p>Ajuda no acompanhamento da irrigação e no uso mais consciente da água.</p>
+          <strong>R$ 389,90</strong>
+          <button>Adicionar ao carrinho</button>
+        </article>
       </div>
-    </div>`;
-});
 
-function formatar(v){ return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
+      <p id="mensagemBusca" class="mensagem"></p>
+    </section>
 
-function adicionar(id, btn){
-  const p = produtos.find(x=>x.id===id);
-  const item = carrinho.find(x=>x.id===id);
-  if(item) item.qty++;
-  else carrinho.push({...p, qty:1});
-  salvar();
-  animarSemente(btn);
-  btn.classList.add('added');
-  btn.innerHTML = '✅ Plantado!';
-  toast(`🌾 ${p.nome} adicionado!`);
-  setTimeout(()=>{btn.classList.remove('added');btn.innerHTML='🌱 Plantar no carrinho'},1400);
-}
+    <section id="sobre" class="sobre">
+      <h2>Mais do que vender, orientar</h2>
+      <p>
+        A AgroRaiz nasceu para aproximar tecnologia, conhecimento agronômico
+        e soluções acessíveis para produtores, técnicos e cooperativas.
+      </p>
+    </section>
+  </main>
 
-function animarSemente(btn){
-  const seed = document.createElement('span');
-  seed.className='seed';
-  seed.textContent='🌱';
-  const r = btn.getBoundingClientRect();
-  seed.style.left=(r.left+r.width/2)+'px';
-  seed.style.top=(r.top)+'px';
-  seed.style.position='fixed';
-  document.body.appendChild(seed);
-  setTimeout(()=>seed.remove(),800);
-}
+  <footer id="contato">
+    <p>© 2026 AgroRaiz — Atendimento humano para quem vive o agro.</p>
+  </footer>
 
-function salvar(){
-  localStorage.setItem('agrocart', JSON.stringify(carrinho));
-  renderCarrinho();
-}
-
-function renderCarrinho(){
-  const c = document.getElementById('cart-items');
-  const count = carrinho.reduce((s,i)=>s+i.qty,0);
-  document.getElementById('cart-count').textContent = count;
-  if(!carrinho.length){
-    c.innerHTML = '<div class="cart-empty"><span class="ic">🌾</span>Seu campo está vazio.<br>Comece a plantar produtos!</div>';
-    document.getElementById('checkout').disabled = true;
-  } else {
-    document.getElementById('checkout').disabled = false;
-    c.innerHTML = carrinho.map(i=>`
-      <div class="cart-item">
-        <div class="emoji">${i.emoji}</div>
-        <div class="nome">${i.nome}<small>${formatar(i.preco)}</small></div>
-        <div class="qty">
-          <button onclick="mudarQty(${i.id},-1)">−</button>
-          <span>${i.qty}</span>
-          <button onclick="mudarQty(${i.id},1)">+</button>
-        </div>
-      </div>`).join('');
-  }
-  const total = carrinho.reduce((s,i)=>s+i.preco*i.qty,0);
-  document.getElementById('total').textContent = formatar(total);
-}
-
-function mudarQty(id,d){
-  const it = carrinho.find(x=>x.id===id);
-  it.qty += d;
-  if(it.qty<=0) carrinho = carrinho.filter(x=>x.id!==id);
-  salvar();
-}
-
-function abrirCarrinho(){
-  document.getElementById('cart').classList.add('open');
-  document.getElementById('overlay').classList.add('open');
-}
-function fecharCarrinho(){
-  document.getElementById('cart').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
-}
-
-function finalizarCompra(){
-  toast('🚜 Colheita finalizada! Em breve em sua fazenda 🌾');
-  carrinho = [];
-  salvar();
-  setTimeout(fecharCarrinho, 1200);
-}
-
-let toastTimer;
-function toast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'),2400);
-}
-
-renderCarrinho();
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
