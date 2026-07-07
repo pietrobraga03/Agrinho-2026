@@ -17,8 +17,11 @@
       <a href="#produtos">Produtos</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
-      <button id="btnContraste" aria-label="Ativar modo de alto contraste">
-        Alto contraste
+      <button id="btnContraste" class="btn-nav" aria-label="Ativar modo de alto contraste">
+        🌓 Alto contraste
+      </button>
+      <button id="btnAbrirCarrinho" class="btn-nav btn-destaque" aria-label="Abrir carrinho">
+        🛒 Carrinho (<span id="contadorCarrinho">0</span>)
       </button>
     </nav>
   </header>
@@ -44,36 +47,36 @@
       <h2>Produtos em destaque</h2>
 
       <div class="grid-produtos" id="listaProdutos">
-        <article class="card" data-nome="semente de milho">
+        <article class="card" data-nome="semente de milho" data-preco="218.90">
           <span>Sementes</span>
           <h3>Semente de Milho Safra Forte</h3>
           <p>Boa adaptação ao campo e indicada para produtores que buscam estabilidade na lavoura.</p>
           <strong>R$ 218,90</strong>
-          <button>Adicionar ao carrinho</button>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
         </article>
 
-        <article class="card" data-nome="fertilizante npk">
+        <article class="card" data-nome="fertilizante npk" data-preco="154.90">
           <span>Fertilizantes</span>
           <h3>Fertilizante NPK 04-14-08</h3>
           <p>Auxilia no desenvolvimento inicial das plantas e na correção nutricional do solo.</p>
           <strong>R$ 154,90</strong>
-          <button>Adicionar ao carrinho</button>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
         </article>
 
-        <article class="card" data-nome="kit analise solo">
+        <article class="card" data-nome="kit analise solo" data-preco="239.90">
           <span>Análise</span>
           <h3>Kit de Análise de Solo</h3>
           <p>Uma opção prática para avaliações preliminares antes do manejo técnico da área.</p>
           <strong>R$ 239,90</strong>
-          <button>Adicionar ao carrinho</button>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
         </article>
 
-        <article class="card" data-nome="sensor umidade">
+        <article class="card" data-nome="sensor umidade" data-preco="389.90">
           <span>Tecnologia</span>
           <h3>Sensor de Umidade do Solo</h3>
           <p>Ajuda no acompanhamento da irrigação e no uso mais consciente da água.</p>
           <strong>R$ 389,90</strong>
-          <button>Adicionar ao carrinho</button>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
         </article>
       </div>
 
@@ -92,6 +95,22 @@
   <footer id="contato">
     <p>© 2026 AgroRaiz — Atendimento humano para quem vive o agro.</p>
   </footer>
+
+  <aside id="sidebarCarrinho" class="carrinho-lateral oculto">
+    <div class="carrinho-cabecalho">
+      <h2>Seu Carrinho</h2>
+      <button id="btnFecharCarrinho" aria-label="Fechar carrinho">X</button>
+    </div>
+    <div id="listaItensCarrinho" class="carrinho-itens">
+      <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+    </div>
+    <div class="carrinho-rodape">
+      <p>Total: <strong id="totalCarrinho">R$ 0,00</strong></p>
+      <button class="btn-finalizar">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <div id="overlayCarrinho" class="overlay oculto"></div>
 
   <script src="script.js"></script>
 </body>
